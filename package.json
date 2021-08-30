@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "pdf": "shower pdf",
+    "serve": "shower serve",
+    "archive": "shower archive",
+    "prepare": "shower prepare",
+    "publish": "shower publish"
+  },
+  "dependencies": {
+    "@shower/ribbon": "^3.2.2",
+    "shower-core": "^2.1.0"
+  },
+  "devDependencies": {
+    "@shower/cli": "^0.2.8"
+  }
+}
