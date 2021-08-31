@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./my_theme.css">
     <link rel="stylesheet" href="color_examples/hsl_color_examples.css">
     <link rel="stylesheet" href="color_examples/hwb_color_examples.css">
+    <link rel="stylesheet" href="color_examples/lch_color_examples.css">
+    <link rel="stylesheet" href="color_examples/lab_color_examples.css">
     <style>
         .shower {
             --slide-ratio: calc(16 / 9);
@@ -38,8 +40,14 @@
     </section>
 
     <section class="slide">
-        <p>Прежде чем мы начнём...</p>
+        <h2>Мы будем говорить:</h2>
+        <ul>
+            <li>о цвете вообще</li>
+            <li>о цвете в мониторах</li>
+            <li>о цвете в CSS</li>
+        </ul>
     </section>
+
     <section class="slide">
         <h2 class="shout shrink">Что такое цвет?</h2>
     </section>
@@ -236,11 +244,6 @@
     </section>
 
     <section class="slide">
-        <h2>Система с правильной яркостью</h2>
-        <img src="accest/CIE_XY.jpeg" alt="" class="picture" style="height: 90%;">
-    </section>
-
-    <section class="slide">
         <h2>Как мы можем воспроизвести цвет, который видим?</h2>
         <ul>
             <li>Найти пигмент и сделать краску.</li>
@@ -257,8 +260,7 @@
     <section class="slide">
         <h2>Как устроен пиксель?</h2>
         <ul>
-            <li>источник белого света</li>
-            <li>фильтр для создания нужного цвета</li>
+            <li>источник света нужного цвета</li>
             <li>возможность делать пиксель нужно прозрачности</li>
         </ul>
     </section>
@@ -321,7 +323,17 @@
         <h2 class="">Как задать цвет?</h2>
         <p>На любом множестве цветов (в любом охвате) нам нужно как-то определить конкретный.</p>
         <p>Такой способ определения цвета называется <b>цветовым пространством</b>.</p>
-        <error>картинка</error>
+        <p class="next">Чуть глубже в термины!</p>
+    </section>
+
+    <section class="slide">
+        <h2 class="">Цветовое пространство</h2>
+        <p>Пространство - это...</p>
+        <ul>
+            <li>точка отсчета</li>
+            <li>несколько осей</li>
+            <li>единичный отрезок</li>
+        </ul>
     </section>
 
     <section class="slide">
@@ -374,17 +386,28 @@
 
     <section class="slide">
         <h2>Ключевые слова</h2>
-        <p>1. currentcolor - значения свойства <code>color</code> для того же элемента.</p>
+        <p>1. <code>currentcolor</code> - значения свойства <code>color</code> для того же элемента.</p>
+        <pre class="small">
+            <code>&lt;div><span style="color: red; border: 1px solid">Text</span>&lt;/div></code>
+            <code>&lt;style></code>
+            <code>  div {</code>
+            <code>    color: red;</code>
+            <code>    border: 1px solid currentcolor;</code>
+            <code>  }</code>
+            <code>&lt;/style></code>
+        </pre>
     </section>
 
     <section class="slide">
         <h2>Ключевые слова</h2>
         <p>2. Именованные цвета</p>
+        <img src="accest/named_color.png" alt="" style="width: 100%; opacity: 0.7;">
     </section>
 
     <section class="slide">
         <h2>Ключевые слова</h2>
-        <p>2. Системные цвета</p>
+        <p>2. Системные цвета - нужны для <a href="https://www.w3.org/TR/css-color-adjust-1">режима повышенной контрастности</a></p>
+        <img src="accest/system_color.png" alt="" style="width: 100%; opacity: 0.7;">
     </section>
 
     <section class="slide">
@@ -429,11 +452,15 @@
         <error>про формы записи</error>
     </section>
 
-
     <section class="slide">
         <h2>HSL()</h2>
         <p>Повернём rgb-куб в полярные координаты.</p>
         <error>картинка</error>
+        <ul>
+            <li>Hue</li>
+            <li>Saturation</li>
+            <li>Lightness</li>
+        </ul>
     </section>
 
     <section class="slide">
@@ -457,8 +484,7 @@
 
     <section class="slide">
         <h2>HSL()</h2>
-        <p>А зачем?</p>
-        <p class="">Для черное-белых телевизоров.</p>
+        <p>А зачем?<span class="next"> Потому что это удобно.</span></p>
         <error>картинка</error>
     </section>
 
@@ -502,8 +528,7 @@
 
     <section class="slide">
         <h2>HWB()</h2>
-        <p>А зачем?</p>
-        <p class="">Потому что это удобно</p>
+        <p>А зачем? <span class="next">Потому что это удобно</span></p>
         <img src="accest/hwb_colorpicker.png" alt="">
     </section>
 
@@ -521,8 +546,126 @@
     </section>
 
     <section class="slide">
-        <h2>еще 10050 слайдов :)))</h2>
+        <h2>LAB()</h2>
+        <p>Система, разномерная для человеческого глаза</p>
+        <img src="accest/lab.jpg" alt="" class="picture">
     </section>
+
+    <section class="slide">
+        <h2>Lightness</h2>
+        <p>CIE яркость</p>
+        <div class="lab_lightness"></div>
+    </section>
+
+    <section class="slide">
+        <h2>B</h2>
+        <p>От синего до желтого</p>
+        <div class="lab_b"></div>
+    </section>
+
+    <section class="slide">
+        <h2>A</h2>
+        <p>От красного до зеленого</p>
+        <div class="lab_a"></div>
+    </section>
+
+    <section class="slide">
+        <h2>LAB()</h2>
+        <pre class="small">
+            <code>/*</code>
+            <code> * @param {&lt;percentage>} --lightness Яркость CIE</code>
+            <code> * @param {&lt;number>} --a От зеленого до красного</code>
+            <code> * @param {&lt;number>} --b От синего до желтого</code>
+            <code> * @param {&lt;number> | &lt;percentage>} [--alpha: 100%] Прозрачность</code>
+            <code> */</code>
+            <code>color: lab (var(--lightness) var(--a) var(--b) / var(--alpha));</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>LAB()</h2>
+        <p>А зачем? <span class="next">Эта система разномерна для человеческого глаза.</span></p>
+        <img src="accest/CIE_XY.jpeg" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2>LCH()</h2>
+        <p>CIE LAB в полярных координатах</p>
+        <img src="accest/lch.png" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2>HUE</h2>
+        <p>Угол цветового круга (другого!)</p>
+        <div class="lch_round"></div>
+        <div class="lch_hue"></div>
+    </section>
+
+    <section class="slide">
+        <h2>Chroma</h2>
+        <p>Количество цвета</p>
+        <div class="lch_chroma"></div>
+    </section>
+
+    <section class="slide">
+        <h2>Lightness</h2>
+        <p>CIE яркость</p>
+        <div class="lch_lightness"></div>
+    </section>
+
+    <section class="slide">
+        <h2>LCH()</h2>
+        <pre class="small">
+            <code>/*</code>
+            <code> * @param {&lt;percentage>} --lightness Яркость CIE</code>
+            <code> * @param {&lt;number[0,132]>} --chroma Количество цвета</code>
+            <code> * @param {&lt;number> | &lt;angle>} --hue Оттенок, угол цветового круга</code>
+            <code> * @param {&lt;number> | &lt;percentage>} [--alpha: 100%] Прозрачность</code>
+            <code> */</code>
+            <code>color: lch (var(--lightness) var(--chroma) var(--hue) / var(--alpha));</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>CMYK</h2>
+    </section>
+
+    <section class="slide">
+        <h2>color()</h2>
+    </section>
+
+    <section class="slide">
+        <h2>градиенты</h2>
+    </section>
+
+    <section class="slide">
+        <h2>контраст</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Взгляд в близкое будущее</h2>
+    </section>
+
+    <section class="slide">
+        <h2>нам нужен р3</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Взгляд в далекое будущее</h2>
+    </section>
+
+    <section class="slide">
+        <h2>color-mix()</h2>
+    </section>
+
+    <section class="slide">
+        <h2>color-contrast()</h2>
+    </section>
+
+    <section class="slide">
+        <h2>relative syntax</h2>
+    </section>
+
 
     <section class="slide">
         <h2>Источники и ссылки</h2>

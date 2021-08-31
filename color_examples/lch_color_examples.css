@@ -1,0 +1,119 @@
+.lch_hue,
+.lch_lightness,
+.lch_chroma {
+    height: 40px;
+    width: 100%;
+    position: relative;
+    margin-top: 2em ;
+}
+
+.lch_hue:after,
+.lch_hue:before,
+.lch_lightness:after,
+.lch_lightness:before,
+.lch_chroma:after,
+.lch_chroma:before {
+    display: block;
+    position: absolute;
+    top: -2em;
+}
+
+.lch_hue:before,
+.lch_lightness:before,
+.lch_chroma:before {
+    right: 0;
+}
+
+.lch_hue {
+    background-image: linear-gradient(to right,
+        lch(50% 132 0),
+        lch(50% 132 22.5),
+        lch(50% 132 45),
+        lch(50% 132 67.5),
+        lch(50% 132 90),
+        lch(50% 132 112.5),
+        lch(50% 132 135),
+        lch(50% 132 157.5),
+        lch(50% 132 180),
+        lch(50% 132 202.5),
+        lch(50% 132 225),
+        lch(50% 132 247.5),
+        lch(50% 132 270),
+        lch(50% 132 292.5),
+        lch(50% 132 315),
+        lch(50% 132 337.5),
+        lch(50% 132 0 )
+    );
+}
+
+.lch_round {
+    background-image: conic-gradient(
+        lch(50% 132 0),
+        lch(50% 132 22.5),
+        lch(50% 132 45),
+        lch(50% 132 67.5),
+        lch(50% 132 90),
+        lch(50% 132 112.5),
+        lch(50% 132 135),
+        lch(50% 132 157.5),
+        lch(50% 132 180),
+        lch(50% 132 202.5),
+        lch(50% 132 225),
+        lch(50% 132 247.5),
+        lch(50% 132 270),
+        lch(50% 132 292.5),
+        lch(50% 132 315),
+        lch(50% 132 337.5),
+        lch(50% 132 0 )
+    );
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.lch_hue:after {
+    content: '0';
+}
+.lch_hue:before {
+    content: '360';
+}
+
+.lch_lightness {
+    background-image: linear-gradient(to right,
+    lch(0% 0 0),
+    lch(10% 33 0),
+    lch(20% 66 0),
+    lch(30% 99 0),
+    lch(40% 132 0),
+    lch(50% 132 0),
+    lch(60% 132 0),
+    lch(70% 99 0),
+    lch(80% 66 0),
+    lch(90% 33 0),
+    lch(100% 0 0)
+    );
+}
+
+.lch_lightness:after {
+    content: '0%';
+}
+.lch_lightness:before {
+    content: '100%';
+}
+
+.lch_chroma {
+    background-image: linear-gradient(to right,
+        lch(50% 0 0),
+        lch(50% 33 0),
+        lch(50% 66 0),
+        lch(50% 99 0),
+        lch(50% 132 0)
+    );
+}
+
+.lch_chroma:after {
+    content: '0';
+}
+.lch_chroma:before {
+    content: '132';
+}
