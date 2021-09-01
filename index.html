@@ -652,7 +652,30 @@
 
     <section class="slide">
         <h2>CMYK</h2>
-        <p>Простраснство оперирует смешением не цветов, а типографских красок.</p>
+        <p>Пространство оперирует смешением не цветов, а типографских красок.</p>
+        <img src="accest/cmyk.gif" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2>CMYK</h2>
+        <p style="text-align: center">Аддитивный синтез цветов VS Субтрактивный синтез цветов</p>
+        <img src="accest/cmyk_sub.jpeg" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2>CMYK()</h2>
+        <pre class="small" style="transform: translateY(-20px)">
+            <code>/*</code>
+            <code> * @param {&lt;number> | &lt;percentage>} --cyan Голубой</code>
+            <code> * @param {&lt;number> | &lt;percentage>} --magenta Пурпурный</code>
+            <code> * @param {&lt;number> | &lt;percentage>} --yellow Жёлтый</code>
+            <code> * @param {&lt;number> | &lt;percentage>} --black Чёрный</code>
+            <code> * @param {&lt;number> | &lt;percentage>} [--alpha: 100%] Прозрачность</code>
+            <code> * @param {&lt;color>} [--color: naively convert] Запасной цвет</code>
+            <code>*/</code>
+            <code>color: device-cmyk( var(--cyan) var(--magenta) var(--yellow)</code>
+            <code>  var(--black) / var(--alpha) var(--color));</code>
+        </pre>
     </section>
 
     <section class="slide">
@@ -685,14 +708,78 @@
     <section class="slide">
         <h2>Out Of Gamut</h2>
         <p>Мы можем задать цвет, который не может показать это устройство.</p>
+        <img src="accest/p3_srgb.png" alt="" class="picture">
     </section>
 
     <section class="slide">
-        <h2>градиенты</h2>
+        <h2>Out Of Gamut</h2>
+        <p>
+            <code>lch(50% 80 270)</code>->
+            <code>rgb(-93 124 257)</code>
+            <span class="color" style="--c: lch(50% 80 270)"></span>
+        </p>
+        <img src="accest/calc_1.png" alt="" class="picture">
     </section>
 
     <section class="slide">
-        <h2>контраст</h2>
+        <h2>Rendering intent</h2>
+        <p>- "способ рендеринга", способ отрисовать цвет вне текущего охвата.</p>
+        <ul>
+            <li>относительный колориметрический</li>
+            <li>абсолютный колориметрический</li>
+            <li>перцептивный</li>
+            <li>по насыщенности</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Rendering intent</h2>
+        <p>1. Относительный колориметрический.</p>
+        <p><code>lch(50% 80 270)</code>  <span class="color" style="--c: lch(50% 80 270)"></span> -> <br>
+            <code>rgb(-93 124 257)</code> <span class="color" style="--c: lch(50% 80 270)"></span> -> <br>
+            <code>rgb(0 124 257)</code> <span class="color" style="--c: rgb(0 124 257)"></span>
+        </p>
+        <p>+ двигаем точку белого </p>
+    </section>
+
+    <section class="slide">
+        <h2>Rendering intent</h2>
+        <p>1. Относительный колориметрический.</p>
+        <p class="one_color"></p>
+        <error>пример для одномерного пространсва</error>
+    </section>
+
+    <section class="slide">
+        <h2>Rendering intent</h2>
+        <p>2. Абсолютный колориметрический.</p>
+        <p><code>lch(50% 80 270)</code>  <span class="color" style="--c: lch(50% 80 270)"></span> -> <br>
+            <code>rgb(-93 124 257)</code> <span class="color" style="--c: lch(50% 80 270)"></span> -> <br>
+            <code>rgb(0 124 257)</code> <span class="color" style="--c: rgb(0 124 257)"></span>
+        </p>
+        <p>+ не трогаем точку белого </p>
+    </section>
+
+    <section class="slide">
+        <h2>Rendering intent</h2>
+        <p>2. Абсолютный колориметрический.</p>
+        <error>пример для одномерного пространсва</error>
+    </section>
+
+    <section class="slide">
+        <h2>Rendering intent</h2>
+        <p>3. Перцептивный.</p>
+        <error>пример для одномерного пространсва</error>
+    </section>
+
+    <section class="slide">
+        <h2>Rendering intent</h2>
+        <p>4. По насыщенности.</p>
+        <error>пример для одномерного пространсва</error>
+    </section>
+
+    <section class="slide">
+        <h2>Градиенты</h2>
+        <p>Все градиенты отрисовываются в sRGB</p>
     </section>
 
     <section class="slide">
@@ -718,7 +805,6 @@
     <section class="slide">
         <h2>relative syntax</h2>
     </section>
-
 
     <section class="slide">
         <h2>Источники и ссылки</h2>
