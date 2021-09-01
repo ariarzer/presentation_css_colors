@@ -6,4 +6,11 @@
     font-size: 40px;
 }
 
-cod
+.color {
+    height: 1em;
+    display: inline-block;
+    width: 1em;
+    background-color: var(--c);
+    vertical-align: middle;
+    margin: 2px 2px 2px 10px;
+}

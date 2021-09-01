@@ -413,16 +413,21 @@
     <section class="slide">
         <h2>rgb()</h2>
         <error>картинка куб</error>
+        <ul>
+            <li>Red</li>
+            <li>Greeb</li>
+            <li>Blue</li>
+        </ul>
     </section>
 
     <section class="slide">
         <h2>rgb()</h2>
         <pre class="small">
             <code>/*</code>
-            <code> * @param {&lt;number> | &lt;percentage>} --red Красный канал</code>
-            <code> * @param {&lt;number> | &lt;percentage>} --green Зелёный канал</code>
-            <code> * @param {&lt;number> | &lt;percentage>} --blue Синий канал</code>
-            <code> * @param {&lt;number> | &lt;percentage>} [--alpha: 100%] Прозрачность</code>
+            <code> * @param {&lt;number[0,255]> | &lt;percentage>} --red Красный канал</code>
+            <code> * @param {&lt;number[0,255]> | &lt;percentage>} --green Зелёный канал</code>
+            <code> * @param {&lt;number[0,255]> | &lt;percentage>} --blue Синий канал</code>
+            <code> * @param {&lt;number[0,255]> | &lt;percentage>} [--alpha: 100%] Прозрачность</code>
             <code> */</code>
             <code>color: rgb (var(--red) var(--green) var(--blue) / var(--alpha));</code>
         </pre>
@@ -449,7 +454,21 @@
 
     <section class="slide">
         <h2>hex -  то же самое</h2>
-        <error>про формы записи</error>
+        <p>Особая форма записи rgb с помощью шестнадцатеричных чисел.</p>
+        <div class="columns two">
+            <div>
+                6 символов:
+                <p><code>#<span style="color: red">ff</span><span style="color: green">ff</span><span style="color: blue">ff</span></code></p>
+                8 символов:
+                <p><code>#<span style="color: red">ff</span><span style="color: green">ff</span><span style="color: blue">ff</span><span style="opacity: 0.5">ff</span></code></p>
+            </div>
+            <div>
+                3 символа:
+                <p><code>#<span style="color: red">f</span><span style="color: green">f</span><span style="color: blue">f</span></code></p>
+                6 символа:
+                <p><code>#<span style="color: red">f</span><span style="color: green">f</span><span style="color: blue">f</span><span style="opacity: 0.5">f</span></code></p>
+            </div>
+        </div>
     </section>
 
     <section class="slide">
@@ -505,6 +524,11 @@
         <h2>HWB()</h2>
         <p>Повернём rgb-куб в другие полярные координаты.</p>
         <error>картинка</error>
+        <ul>
+            <li>Hue</li>
+            <li>Whiteness</li>
+            <li>Blackness</li>
+        </ul>
     </section>
 
     <section class="slide">
@@ -628,10 +652,39 @@
 
     <section class="slide">
         <h2>CMYK</h2>
+        <p>Простраснство оперирует смешением не цветов, а типографских красок.</p>
     </section>
 
     <section class="slide">
         <h2>color()</h2>
+        <p>Можно управлять цветовым пространство рендеринга.</p>
+    </section>
+
+    <section class="slide">
+        <h2>color()</h2>
+        <pre class="small">
+            <code>/*</code>
+            <code> * @param {&lt;ident> | &lt;dashed-ident>} --color_space Имя пространства</code>
+            <code> * @param {&lt;number[0,1]>} --red Красный канал</code>
+            <code> * @param {&lt;number[0,1]>} --green Зелёный канал</code>
+            <code> * @param {&lt;number[0,1]>} --blue Синий канал</code>
+            <code> * @param {&lt;number> | &lt;percentage>} [--alpha: 100%] Прозрачность</code>
+            <code> */</code>
+            <code>color: color (var(--color_space) var(--red) var(--green)</code>
+            <code>  var(--blue) / var(--alpha));</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>color()</h2>
+        <p class="next"><code>color(sRGB 1 0 0)</code><span class="color" style="--c: color(sRGB 1 0 0)"></span></p>
+        <p class="next"><code>color(display-p3 1 0 0)</code><span class="color" style="--c: color(rec2020 1 0 0)"></span></p>
+        <p class="next"><code>color(rec2020 1 0 0)</code><span class="color" style="--c: color(rec2020 1 0 0)"></span></p>
+    </section>
+
+    <section class="slide">
+        <h2>Out Of Gamut</h2>
+        <p>Мы можем задать цвет, который не может показать это устройство.</p>
     </section>
 
     <section class="slide">
