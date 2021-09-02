@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="color_examples/hwb_color_examples.css">
     <link rel="stylesheet" href="color_examples/lch_color_examples.css">
     <link rel="stylesheet" href="color_examples/lab_color_examples.css">
+    <link rel="stylesheet" href="color_examples/out-of-gamut_color_example.css">
     <style>
         .shower {
             --slide-ratio: calc(16 / 9);
@@ -45,6 +46,7 @@
             <li>о цвете вообще</li>
             <li>о цвете в мониторах</li>
             <li>о цвете в CSS</li>
+            <li>о том, зачем нам это все нужно</li>
         </ul>
     </section>
 
@@ -316,6 +318,10 @@
     </section>
 
     <section class="slide">
+        <img src="accest/gamuts.png" alt="" class="cover" style="height: 90%">
+    </section>
+
+    <section class="slide">
         <h2 class="cover">Как это всё связано с css???</h2>
     </section>
 
@@ -412,10 +418,10 @@
 
     <section class="slide">
         <h2>rgb()</h2>
-        <error>картинка куб</error>
-        <ul>
+        <img src="accest/rgb_cube.png" alt="" class="picture" style="float: left">
+        <ul style="transform: translateX(50px)">
             <li>Red</li>
-            <li>Greeb</li>
+            <li>Green</li>
             <li>Blue</li>
         </ul>
     </section>
@@ -474,8 +480,8 @@
     <section class="slide">
         <h2>HSL()</h2>
         <p>Повернём rgb-куб в полярные координаты.</p>
-        <error>картинка</error>
-        <ul>
+        <img src="accest/HSL_color_solid_cylinder_saturation.png" alt="" class="picture" style="margin: 0; background-color: initial;float: left;">
+        <ul style="transform: translateX(50px)">
             <li>Hue</li>
             <li>Saturation</li>
             <li>Lightness</li>
@@ -504,7 +510,7 @@
     <section class="slide">
         <h2>HSL()</h2>
         <p>А зачем?<span class="next"> Потому что это удобно.</span></p>
-        <error>картинка</error>
+        <img src="accest/hsl_color_picker.jpg" alt="" class="picture next">
     </section>
 
     <section class="slide">
@@ -523,7 +529,6 @@
     <section class="slide">
         <h2>HWB()</h2>
         <p>Повернём rgb-куб в другие полярные координаты.</p>
-        <error>картинка</error>
         <ul>
             <li>Hue</li>
             <li>Whiteness</li>
@@ -553,7 +558,7 @@
     <section class="slide">
         <h2>HWB()</h2>
         <p>А зачем? <span class="next">Потому что это удобно</span></p>
-        <img src="accest/hwb_colorpicker.png" alt="">
+        <img src="accest/hwb_colorpicker.png" alt="" class="next picture">
     </section>
 
     <section class="slide">
@@ -642,7 +647,7 @@
         <pre class="small">
             <code>/*</code>
             <code> * @param {&lt;percentage>} --lightness Яркость CIE</code>
-            <code> * @param {&lt;number[0,132]>} --chroma Количество цвета</code>
+            <code> * @param {&lt;number>} --chroma Количество цвета</code>
             <code> * @param {&lt;number> | &lt;angle>} --hue Оттенок, угол цветового круга</code>
             <code> * @param {&lt;number> | &lt;percentage>} [--alpha: 100%] Прозрачность</code>
             <code> */</code>
@@ -708,7 +713,7 @@
     <section class="slide">
         <h2>Out Of Gamut</h2>
         <p>Мы можем задать цвет, который не может показать это устройство.</p>
-        <img src="accest/p3_srgb.png" alt="" class="picture">
+        <img src="accest/srgb_p3.png" alt="" class="picture">
     </section>
 
     <section class="slide">
@@ -746,7 +751,37 @@
         <h2>Rendering intent</h2>
         <p>1. Относительный колориметрический.</p>
         <p class="one_color"></p>
-        <error>пример для одномерного пространсва</error>
+        <div class="out-of-gamut_relative">
+            <div class="out-of-gamut_relative_top"></div>
+            <div class="out-of-gamut_relative_bottom"></div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Точка белого</h2>
+        <p>- это белый цвет цветового пространства - точка отсчёта.</p>
+        <img src="accest/color_temperature.png" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2>Точка белого</h2>
+        <p>Как правило это D65 - 6500 градусов по кельвину.</p>
+        <img src="accest/color_temperature.png" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2>Rendering intent</h2>
+        <p>1. Относительный колориметрический.</p>
+        <p>Некоторыми нелинейными преобразованиями изменяет пространство</p>
+        <p style="vertical-align: top">
+            <img src="accest/conversion_grid1.png" alt=""
+                 style="background-image: url('./accest/conversion_generic.jpeg')">
+            ->
+            <img src="accest/conversion_grid2.png" alt=""
+                 style="background-image: url('./accest/conversion_generic.jpeg')">
+            =
+            <img src="accest/conversion_wp3.jpeg" alt="">
+        </p>
     </section>
 
     <section class="slide">
@@ -761,37 +796,87 @@
 
     <section class="slide">
         <h2>Rendering intent</h2>
-        <p>2. Абсолютный колориметрический.</p>
-        <error>пример для одномерного пространсва</error>
-    </section>
-
-    <section class="slide">
-        <h2>Rendering intent</h2>
         <p>3. Перцептивный.</p>
-        <error>пример для одномерного пространсва</error>
+        <div class="out-of-gamut_perceptual">
+            <div class="out-of-gamut_perceptual_top"></div>
+            <div class="out-of-gamut_perceptual_bottom"></div>
+        </div>
     </section>
 
     <section class="slide">
         <h2>Rendering intent</h2>
         <p>4. По насыщенности.</p>
-        <error>пример для одномерного пространсва</error>
-    </section>
-
-    <section class="slide">
-        <h2>Градиенты</h2>
-        <p>Все градиенты отрисовываются в sRGB</p>
+        <p>Сохраняется насыщенность цвета.</p>
     </section>
 
     <section class="slide">
         <h2>Взгляд в близкое будущее</h2>
+        <p>css-color-4:</p>
+        <ul>
+            <li>color()</li>
+            <li>lab()</li>
+            <li>lch()</li>
+        </ul>
     </section>
 
     <section class="slide">
-        <h2>нам нужен р3</h2>
+        <h2>Взгляд в близкое будущее</h2>
+        <p>css-color-4 уже можно пользоваться!</p>
+        <img src="accest/can_i_use_color().png" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2>Нам нужен р3!</h2>
+        <img src="accest/srgb_p3.png" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2>р3 - это легко!</h2>
+        <p>Обычная палитра цветов на сайте:</p>
+        <div class="columns two">
+            <pre class="small">
+                <code>{</code>
+                <code>  "azure_300": "#3F8AE0",</code>
+                <code>  "blue_200": "#5C9CE6",</code>
+                <code>  "gold_200": "#F4E7C3",</code>
+                <code>  "gray_40": "#F2F3F5",</code>
+                <code>  ...</code>
+                <code>}</code>
+            </pre>
+            <pre class="small">
+                <code>:root {</code>
+                <code>  --azure_300: #3F8AE0;</code>
+                <code>  --blue_200: #5C9CE6;</code>
+                <code>  --gold_200: #F4E7C3;</code>
+                <code>  --gray_40: #F2F3F5;</code>
+                <code>  ...</code>
+                <code>}</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>р3 - это легко!</h2>
+        <p>Красивая палитра цветов на сайте:</p>
+        <pre class="small">
+            <code>@supports (color: color(display-p3 0 0 0)) {</code>
+            <code>  :root {</code>
+            <code>    --azure_300: color(display-p3 0.15 0.53 0.96);</code>
+            <code>    --blue_400: color(display-p3 0.32 0.51 0.72);</code>
+            <code>    --gold_200: color(display-p3 0.96 0.91 0.76);</code>
+            <code>    ...</code>
+            <code>} }</code>
+        </pre>
     </section>
 
     <section class="slide">
         <h2>Взгляд в далекое будущее</h2>
+        <p>css-color-5:</p>
+        <ul>
+            <li>color-mix()</li>
+            <li>color-contrast()</li>
+            <li>relative syntax</li>
+        </ul>
     </section>
 
     <section class="slide">
@@ -807,22 +892,38 @@
     </section>
 
     <section class="slide">
+        <h2>Итого:</h2>
+        <ul>
+            <li class="next">Цвет - это реакция человеческого глаза на излучение.</li>
+            <li class="next">Мы можем воспроизвести далеко не все цвета, что видим.</li>
+            <li class="next">Особенно в браузерах.</li>
+            <li class="next">Но можно стараться!</li>
+        </ul>
+    </section>
+
+    <section class="slide">
         <h2>Источники и ссылки</h2>
         <ul>
             <li>Про цвета на <a href="https://css-live.ru/css/css-colors.html" target="_blank">CSS LIVE</a></li>
             <li>Основы теории цвета на <a href="https://habr.com/ru/post/209738/" target="_blank">хабре</a></li>
-            <li>Основы ЦВЕТОВОГО восприятия на <a href="https://www.cambridgeincolour.com/ru/tutorials-ru/color-perception.html" target="_blank">cambridgeincolou</a></li>
+            <li>Основы ЦВЕТОВОГО восприятия на <a href="https://www.cambridgeincolour.com/ru/tutorials-ru/color-perception.html" target="_blank">cambridgeincolor</a></li>
             <li>Перевод статьи Лии Веру <a href="https://habr.com/ru/company/ruvds/blog/496966/" target="_blank">про LCH</a></li>
+            <li>Про цвета вне гаммы на  <a href="https://www.cambridgeincolour.com/tutorials/color-space-conversion.htm" target="_blank">cambridgeincolor</a></li>
+            <li>Про цвета вне гаммы на  <a href="https://creativepro.com/out-of-gamut-realizing-good-intentions-with-rendering-intents/" target="_blank">creativepro</a></li>
+            http://www.brucelindbloom.com/index.html?Eqn_DeltaE_CIE94.html
         </ul>
     </section>
 
     <section class="slide">
         <h2>София Валитова из <a href="https://vk.com">ВКонтакте</a></h2>
-        <ul>
+        <ul class="small">
             <li><a>ariarzer@gmail.com</a></li>
             <li>Twitter – <a href="https://twitter.com/ariarzer" target="_blank">@ariarzer</a></li>
             <li>ВКонтакте – <a href="https://vk.com/ariarzer" target="_blank">@ariarzer</a></li>
-            <li>Telegram – <a href="https://twitter.com/ariarzer" target="_blank">@ariarzer</a></li>
+            <li>Telegram – <a href="https://t.me/ariarzer" target="_blank">@ariarzer</a></li>
+            <li>Мой канал про css – <a href="https://t.me/css_mind" target="_blank">@css_mind</a></li>
+            <li>Мой блог про css – <a href="https://ariarzer.dev" target="_blank">ariarzer.dev</a></li>
+            <li>Patreon – <a href="https://www.patreon.com/ariarzer" target="_blank">@ariarzer</a></li>
         </ul>
 
         <p>Презентация сделана с помощью <a href="https://shwr.me/">Shower</a></p>

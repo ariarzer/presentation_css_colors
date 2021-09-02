@@ -140,3 +140,7 @@ pre.small code {
 pre.no_n code::before {
     content: '' !important;
 }
+
+.small {
+    font-size: 20px;
+}
