@@ -1,0 +1,131 @@
+.lab_a,
+.lab_lightness,
+.lab_b {
+    height: 40px;
+    width: 100%;
+    position: relative;
+    margin-top: 2em ;
+}
+
+.lab_a:after,
+.lab_a:before,
+.lab_lightness:after,
+.lab_lightness:before,
+.lab_b:after,
+.lab_b:before {
+    display: block;
+    position: absolute;
+    top: -2em;
+}
+
+.lab_a:before,
+.lab_lightness:before,
+.lab_b:before {
+    right: 0;
+}
+
+.lab_a {
+    background-image: linear-gradient(to right,
+        lab(50% -100 0),
+        lab(50% -90 0),
+        lab(50% -80 0),
+        lab(50% -70 0),
+        lab(50% -60 0),
+        lab(50% -50 0),
+        lab(50% -40 0),
+        lab(50% -30 0),
+        lab(50% -20 0 ),
+        lab(50% -10 0 ),
+        lab(50% 0 0 ),
+        lab(50% 10 0 ),
+        lab(50% 20 0 ),
+        lab(50% 30 0 ),
+        lab(50% 40 0 ),
+        lab(50% 50 0 ),
+        lab(50% 60 0 ),
+        lab(50% 70 0 ),
+        lab(50% 80 0),
+        lab(50% 90 0),
+        lab(50% 100 0)
+    );
+}
+
+.lab_a:after {
+    content: '-100';
+}
+.lab_a:before {
+    content: '-100';
+}
+
+.lab_lightness {
+    background-image: linear-gradient(to right,
+    lab(0% 0 0),
+    lab(10% 0 0),
+    lab(20% 0 0),
+    lab(30% 0 0),
+    lab(40% 0 0),
+    lab(50% 0 0),
+    lab(60% 0 0),
+    lab(70% 0 0),
+    lab(80% 0 0),
+    lab(90% 0 0),
+    lab(100% 0 0)
+    );
+}
+
+.lab_lightness:after {
+    content: '0%';
+}
+.lab_lightness:before {
+    content: '100%';
+}
+
+.lab_b {
+    background-image: linear-gradient(to right,
+        lab(50% 0 -100),
+        lab(50% 0 -90),
+        lab(50% 0 -80),
+        lab(50% 0 -70),
+        lab(50% 0 -60),
+        lab(50% 0 -50),
+        lab(50% 0 -40),
+        lab(50% 0 -30),
+        lab(50% 0 -20),
+        lab(50% 0 -10),
+        lab(50% 0 0),
+        lab(50% 0 10),
+        lab(50% 0 20),
+        lab(50% 0 30),
+        lab(50% 0 40),
+        lab(50% 0 50),
+        lab(50% 0 60),
+        lab(50% 0 70),
+        lab(50% 0 80),
+        lab(50% 0 90),
+        lab(50% 0 100)
+    );
+}
+
+.lab_b:after {
+    content: '-100';
+}
+.lab_b:before {
+    content: '100';
+}
+
+.lab_round {
+    background-image: conic-gradient(
+        lab(50% +100 0),
+        lab(50% +100 100),
+        lab(50% 0 100),
+        lab(50% -100 100),
+        lab(50% -100 0),
+        lab(50% -100 -100),
+        lab(50% 0 -100),
+        lab(50% 100 -100),
+        lab(50% +100 0)
+    );
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}

@@ -1,0 +1,109 @@
+.hsl_hue,
+.hsl_saturation,
+.hsl_lightness {
+    height: 40px;
+    width: 100%;
+    position: relative;
+    margin-top: 2em ;
+}
+
+.hsl_hue:after,
+.hsl_hue:before,
+.hsl_saturation:after,
+.hsl_saturation:before,
+.hsl_lightness:after,
+.hsl_lightness:before {
+    display: block;
+    position: absolute;
+    top: -2em;
+}
+
+.hsl_hue:before,
+.hsl_saturation:before,
+.hsl_lightness:before {
+    right: 0;
+}
+
+.hsl_hue {
+    background-image: linear-gradient(to right,
+    hsl(0, 100%, 50%),
+    hsl(45, 100%, 50%),
+    hsl(90, 100%, 50%),
+    hsl(135, 100%, 50%),
+    hsl(180, 100%, 50%),
+    hsl(225, 100%, 50%),
+    hsl(270, 100%, 50%),
+    hsl(315, 100%, 50%),
+    hsl(0, 100%, 50%)
+    );
+}
+
+.hsl_round {
+    background-image: conic-gradient(
+            hsl(0, 100%, 50%),
+            hsl(45, 100%, 50%),
+            hsl(90, 100%, 50%),
+            hsl(135, 100%, 50%),
+            hsl(180, 100%, 50%),
+            hsl(225, 100%, 50%),
+            hsl(270, 100%, 50%),
+            hsl(315, 100%, 50%),
+            hsl(0, 100%, 50%)
+    );
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.hsl_hue:after {
+    content: '0';
+}
+.hsl_hue:before {
+    content: '360';
+}
+
+.hsl_saturation {
+    background-image: linear-gradient(to right,
+    hsl(0, 0%, 50%),
+    hsl(0, 10%, 50%),
+    hsl(0, 20%, 50%),
+    hsl(0, 30%, 50%),
+    hsl(0, 40%, 50%),
+    hsl(0, 50%, 50%),
+    hsl(0, 60%, 50%),
+    hsl(0, 70%, 50%),
+    hsl(0, 80%, 50%),
+    hsl(0, 90%, 50%),
+    hsl(0, 100%, 50%)
+    );
+}
+
+.hsl_saturation:after {
+    content: '0%';
+}
+.hsl_saturation:before {
+    content: '100%';
+}
+
+.hsl_lightness {
+    background-image: linear-gradient(to right,
+    hsl(0, 100%, 0%),
+    hsl(0, 100%, 10%),
+    hsl(0, 100%, 20%),
+    hsl(0, 100%, 30%),
+    hsl(0, 100%, 40%),
+    hsl(0, 100%, 50%),
+    hsl(0, 100%, 60%),
+    hsl(0, 100%, 70%),
+    hsl(0, 100%, 80%),
+    hsl(0, 100%, 90%),
+    hsl(0, 100%, 100%)
+    );
+}
+
+.hsl_lightness:after {
+    content: '0%';
+}
+.hsl_lightness:before {
+    content: '100%';
+}

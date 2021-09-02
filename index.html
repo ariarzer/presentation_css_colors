@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Shower Presentation Engine</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
+    <link rel="stylesheet" href="./global_style.css">
+    <link rel="stylesheet" href="./local_style.css">
+    <link rel="stylesheet" href="./my_theme.css">
+    <link rel="stylesheet" href="color_examples/hsl_color_examples.css">
+    <link rel="stylesheet" href="color_examples/hwb_color_examples.css">
+    <link rel="stylesheet" href="color_examples/lch_color_examples.css">
+    <link rel="stylesheet" href="color_examples/lab_color_examples.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Цвета в CSS</h1>
+        <p>София Валитова, ВКонтакте</p>
+    </header>
+
+    <section class="slide">
+        <h2>Привет!</h2>
+        <p>Меня зовут София. Я - CSS инженер.</p>
+    </section>
+
+    <section class="slide" id="head">
+        <h2 class="shout shrink">Цвета в CSS</h2>
+        <style>
+            .slide#head::after {
+                visibility: hidden;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Мы будем говорить:</h2>
+        <ul>
+            <li>о цвете вообще</li>
+            <li>о цвете в мониторах</li>
+            <li>о цвете в CSS</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout shrink">Что такое цвет?</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Цвет мы определем с помощью глаз</h2>
+        <img src="./accest/specrt.png" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2>Цвет связан со светом.</h2>
+        <div class="columns two">
+            <div>
+                <p>Мы знаем про свет:</p>
+                <ul>
+                    <li>Длина волны</li>
+                    <li>Частота</li>
+                    <li>Мощность</li>
+                    <li><b>Cпектральный состав</b></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Что такое спектральный состав?</h2>
+        <p>- зависомость интенсивности излучения от длиный волны.</p>
+        <img src="accest/spectr_my.png" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2 class="cover text">Цвет — это свойство излучения?</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Попробуем описать цвет через спектр.</h2>
+        <p>Монохромный цвет:</p>
+        <img src="accest/mono.png" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2>Попробуем описать цвет через спектр.</h2>
+        <p>Немонохромный цвет:</p>
+        <img src="accest/no_mono.png" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2>Почему так нельзя?</h2>
+        <p>1. Необходимо записывать не меньше 35 числовых значений спектра для описания одного цвета.</p>
+        <img src="accest/no_mono_many.png" alt="" class="picture" style="height: 50%">
+    </section>
+
+    <section class="slide">
+        <h2>Почему так нельзя?</h2>
+        <p>2. Cпектры некоторых идентичных по цвету образцов ведут себя по разному.</p>
+        <img src="accest/monomor.png" alt="" class="picture" style="height: 50%">
+    </section>
+
+    <section class="slide">
+        <div class="cover text">
+            <h2 style="text-decoration: line-through;">Цвет — это свойство излучения?</h2>
+            <h2>Цвет - реакция человеческго глаза на излучение</h2>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Человеческий глаз</h2>
+        <p>Колбочки различают цвета, палочки - уровень освещенности.</p>
+        <img src="./accest/cones_3.jpg" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2>Человеческий глаз: колбочки</h2>
+        <img src="accest/cones_abs.png" alt="" class="picture" style="height: 80%; width: auto; display: block; margin: auto">
+    </section>
+
+    <section class="slide">
+        <h2>Человеческий глаз: колбочки</h2>
+        <img src="accest/cones_no_abs.png" alt="" class="picture" style="height: 70%; width: auto; display: block; margin: auto">
+    </section>
+
+    <section class="slide">
+        <h2>Цвета смещиваются</h2>
+        <p>Поэтому этими тремя рецепторами мы можем воспринять любой цвет</p>
+        <img src="accest/color_mixing.png" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2>Попробуем чуть упростить</h2>
+        <p>Возьмён три цвета. Таких, что ни один из них не воспроизводилось смесью двух других. И сделаем визуальный колориметер.</p>
+        <img src="accest/three_color.png" alt="" class="picture" style="height: 50%">
+    </section>
+
+    <section class="slide">
+        <img src="./accest/colorimeter.png" alt="" style="background-color: white; position: absolute; top: 50%; left 50%; transform: translate(10%, -50%); box-shadow: 0 0 0 20px white;">
+    </section>
+
+    <section class="slide">
+        <h2 class="cover text">Color = R * V1 + G * V2 + R * V3</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Не для всех цветов так можно, поэтому...</h2>
+        <img src="accest/visual_colorimeter_alt.png" alt="" class="picture" style="box-shadow: 0 0 0 20px white; height: 70%">
+    </section>
+
+    <section class="slide">
+        <h2 class="cover text">Color - R * V1 = G * V2 + R * V3</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Собрали графики для монохромных цветов.</h2>
+        <img src="./accest/rgb_shart.png" class="picture" style="height: 70%">
+    </section>
+
+    <section class="slide">
+        <h2>Теперь мы можем определять цвет так </h2>
+        <img src="accest/rgb_1.png" alt="" class="picture" style="box-shadow: 0 0 0 20px white">
+    </section>
+
+    <section class="slide">
+        <h2>Добавим линейных преобразований</h2>
+        <img src="accest/rgb_1.png" alt="" class="picture" style="box-shadow: 0 0 0 20px white">
+    </section>
+
+    <section class="slide">
+        <h2>Добавим линейных преобразований</h2>
+        <img src="accest/rgb_2.png" alt="" class="picture" style="box-shadow: 0 0 0 20px white">
+    </section>
+
+    <section class="slide">
+        <h2>Добавим линейных преобразований</h2>
+        <img src="accest/rgb_3.png" alt="" class="picture" style="box-shadow: 0 0 0 20px white">
+    </section>
+
+    <section class="slide">
+        <h2>Добавим линейных преобразований</h2>
+        <img src="accest/rgb_4.png" alt="" class="picture" style="box-shadow: 0 0 0 20px white">
+    </section>
+
+    <section class="slide">
+        <h2>Добавим линейных преобразований</h2>
+        <img src="accest/rgb_6.png" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2>Локус</h2>
+        <img src="accest/rgb_5.png" alt="" class="picture" style="box-shadow: 0 0 0 20px white">
+    </section>
+
+    <section class="slide">
+        <h2>Локус</h2>
+        <img src="accest/locus_my.png" alt="" class="picture" style="box-shadow: 0 0 0 20px white">
+    </section>
+
+    <section class="slide">
+        <h2>Локус</h2>
+        <img src="accest/rgb_5.png" alt="" class="picture" style="box-shadow: 0 0 0 20px white">
+    </section>
+
+    <section class="slide">
+        <h2>Нужно выбрать базовые цвета</h2>
+        <img src="accest/triangle_choose.png" alt="" class="picture" style="height: 70%">
+    </section>
+
+    <section class="slide">
+        <h2>Вспомним про колбочки - 1:0,22:17</h2>
+        <img src="accest/cones_no_abs_2.png" alt="" class="picture" style="height: 70%">
+    </section>
+
+    <section class="slide">
+        <h2>Начертим плоскость равной яркости</h2>
+        <img src="accest/one_plate.png" alt="" class="picture" style="height: 70%; box-shadow: 0 0 0 20px white">
+    </section>
+
+    <section class="slide">
+        <h2>Опустим ее ниже</h2>
+        <img src="accest/one_plate_down.png" alt="" class="picture" style="height: 70%; box-shadow: 0 0 0 20px white">
+    </section>
+
+    <section class="slide">
+        <h2>Алихна</h2>
+        <img src="accest/alihna.png" alt="" class="picture" style="height: 70%;">
+    </section>
+
+    <section class="slide">
+        <h2>Теперь можно выбрать цвета</h2>
+        <img src="accest/base_triangle.png" alt="" class="picture" style="height: 70%">
+    </section>
+
+    <section class="slide">
+        <h2>CIE XY</h2>
+        <img src="accest/CIE_XY.jpeg" alt="" class="picture" style="height: 70%;">
+    </section>
+
+    <section class="slide">
+        <h2>Как мы можем воспроизвести цвет, который видим?</h2>
+        <ul>
+            <li>Найти пигмент и сделать краску.</li>
+            <li>Найти источник света такого же цвета.</li>
+            <li class="next next-light light_bold">Найти несколько источников цвета и смешать их излучение</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Найти несколько источников цвета и смешать их излучение</h2>
+        <img src="accest/pixels.jpeg" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2>Как устроен пиксель?</h2>
+        <ul>
+            <li>источник света нужного цвета</li>
+            <li>возможность делать пиксель нужно прозрачности</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Как устроен пиксель?</h2>
+        <img src="accest/LED_display.png" alt="" class="picture" style="height: 70%">
+    </section>
+
+    <section class="slide">
+        <h2>Нужно выбрать базовые цвета</h2>
+        <img src="accest/choose_triangle.png" alt="" class="picture" style="height: 70%">
+    </section>
+
+    <section class="slide">
+        <h2>Нужно выбрать базовые цвета</h2>
+        <p>Хорошие первичные цвета - это <span class="next next-light light_bold">стимулы</span>, которые максимализируют разницу между
+            ответами колбочек сетчатки человека на свет с <span class="next next-light light_bold">разными длинами волн</span>
+            и тем самым образуют <span class="next next-light light_bold">большой цветной треугольник</span> .</p>
+    </section>
+
+    <section class="slide">
+        <h2>Хорошие фильтры - сложно.</h2>
+        <p>Фильтр это - ...</p>
+        <ul>
+            <li class="next-light next light_bold">цветное стеклышко</li>
+            <li>интерференция в тонких плёнках</li>
+        </ul>
+        <p class="next">Чем бы намазать стеклышко, чтобы иметь нужный спектр пропускания?</p>
+        <p class="next">Это коммерческая тайна.</p>
+    </section>
+
+    <section class="slide">
+        <h2>Цветовой охват</h2>
+        <p> - это множество цветов, которые может образить монитор.</p>
+        <p>Зависит от выбора базовых цветов.</p>
+        <p>Большинство мониторов раньше имело охват sRGB</p>
+    </section>
+
+    <section class="slide">
+        <h2>sRGB</h2>
+        <img src="./accest/sRGB.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2>Adobe <br> RGB</h2>
+        <img src="./accest/adobe_rgb.png" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <h2>DCI-P3</h2>
+        <img src="./accest/DCI-P3.png" alt="" class="cover" style="background-color: #fff">
+    </section>
+
+    <section class="slide">
+        <h2 class="cover">Как это всё связано с css???</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="">Как задать цвет?</h2>
+        <p>На любом множестве цветов (в любом охвате) нам нужно как-то определить конкретный.</p>
+        <p>Такой способ определения цвета называется <b>цветовым пространством</b>.</p>
+        <p class="next">Чуть глубже в термины!</p>
+    </section>
+
+    <section class="slide">
+        <h2 class="">Цветовое пространство</h2>
+        <p>Пространство - это...</p>
+        <ul>
+            <li>точка отсчета</li>
+            <li>несколько осей</li>
+            <li>единичный отрезок</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="">Как задать цвет в CSS?</h2>
+        <table>
+            <tr>
+                <td>ключевые слова, <code>rgb()</code>, <code>hsl()</code>, <code>hwb()</code></td>
+            </tr>
+            <tr>
+                <td><code>lab()</code>, <code>lch()</code></td>
+            </tr>
+            <tr>
+                <td><code>device-cmyk()</code></td>
+            </tr>
+            <tr>
+                <td><code>color()</code></td>
+            </tr>
+        </table>
+        <p>Почему я сгруппировала их так?</p>
+    </section>
+
+    <section class="slide">
+        <h2 class="">Как задать цвет в CSS?</h2>
+        <table>
+            <tr>
+                <td>ключевые слова, <code>rgb()</code>, <code>hsl()</code>, <code>hwb()</code></td>
+                <td>sRGB</td>
+            </tr>
+            <tr>
+                <td><code>lab()</code>, <code>lch()</code></td>
+                <td>CIE LAB</td>
+            </tr>
+            <tr>
+                <td><code>device-cmyk()</code></td>
+                <td>CMYK</td>
+            </tr>
+            <tr>
+                <td><code>color()</code></td>
+                <td>можно выбрать</td>
+            </tr>
+        </table>
+        <p>Потому что они по разному отображаются.</p>
+        <p class="next">А теперь поговорим про каждый способ подробнее.</p>
+    </section>
+
+    <section class="slide">
+        <h2>Ключевые слова</h2>
+        <p>1. transparent - прозрачный черный sRGB</p>
+    </section>
+
+    <section class="slide">
+        <h2>Ключевые слова</h2>
+        <p>1. <code>currentcolor</code> - значения свойства <code>color</code> для того же элемента.</p>
+        <pre class="small">
+            <code>&lt;div><span style="color: red; border: 1px solid">Text</span>&lt;/div></code>
+            <code>&lt;style></code>
+            <code>  div {</code>
+            <code>    color: red;</code>
+            <code>    border: 1px solid currentcolor;</code>
+            <code>  }</code>
+            <code>&lt;/style></code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Ключевые слова</h2>
+        <p>2. Именованные цвета</p>
+        <img src="accest/named_color.png" alt="" style="width: 100%; opacity: 0.7;">
+    </section>
+
+    <section class="slide">
+        <h2>Ключевые слова</h2>
+        <p>2. Системные цвета - нужны для <a href="https://www.w3.org/TR/css-color-adjust-1">режима повышенной контрастности</a></p>
+        <img src="accest/system_color.png" alt="" style="width: 100%; opacity: 0.7;">
+    </section>
+
+    <section class="slide">
+        <h2>rgb()</h2>
+        <error>картинка куб</error>
+        <ul>
+            <li>Red</li>
+            <li>Greeb</li>
+            <li>Blue</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>rgb()</h2>
+        <pre class="small">
+            <code>/*</code>
+            <code> * @param {&lt;number[0,255]> | &lt;percentage>} --red Красный канал</code>
+            <code> * @param {&lt;number[0,255]> | &lt;percentage>} --green Зелёный канал</code>
+            <code> * @param {&lt;number[0,255]> | &lt;percentage>} --blue Синий канал</code>
+            <code> * @param {&lt;number[0,255]> | &lt;percentage>} [--alpha: 100%] Прозрачность</code>
+            <code> */</code>
+            <code>color: rgb (var(--red) var(--green) var(--blue) / var(--alpha));</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>rgb()</h2>
+        Новый синтаксис
+        <pre class="small no_n">
+            <code>color: rgb (var(--red) var(--green) var(--blue) / var(--alpha));</code>
+        </pre>
+
+        Средний синтакис
+        <pre class="small no_n">
+            <code>color: rgb (var(--red), var(--green), var(--blue), var(--alpha));</code>
+        </pre>
+
+        Старый синтакис
+        <pre class="small no_n">
+            <code>color: rgb (var(--red), var(--green), var(--blue));</code>
+            <code>color: rgba (var(--red), var(--green), var(--blue), var(--alpha));</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>hex -  то же самое</h2>
+        <p>Особая форма записи rgb с помощью шестнадцатеричных чисел.</p>
+        <div class="columns two">
+            <div>
+                6 символов:
+                <p><code>#<span style="color: red">ff</span><span style="color: green">ff</span><span style="color: blue">ff</span></code></p>
+                8 символов:
+                <p><code>#<span style="color: red">ff</span><span style="color: green">ff</span><span style="color: blue">ff</span><span style="opacity: 0.5">ff</span></code></p>
+            </div>
+            <div>
+                3 символа:
+                <p><code>#<span style="color: red">f</span><span style="color: green">f</span><span style="color: blue">f</span></code></p>
+                6 символа:
+                <p><code>#<span style="color: red">f</span><span style="color: green">f</span><span style="color: blue">f</span><span style="opacity: 0.5">f</span></code></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>HSL()</h2>
+        <p>Повернём rgb-куб в полярные координаты.</p>
+        <error>картинка</error>
+        <ul>
+            <li>Hue</li>
+            <li>Saturation</li>
+            <li>Lightness</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Hue</h2>
+        <p>Тон цвета, представленный в виде угла цветового круга.</p>
+        <div class="hsl_round"></div>
+        <div class="hsl_hue"></div>
+    </section>
+
+    <section class="slide">
+        <h2>Saturation</h2>
+        <p>Насыщенность цвета</p>
+        <div class="hsl_saturation"></div>
+    </section>
+
+    <section class="slide">
+        <h2>Lightness</h2>
+        <p>«Светлота» цвета</p>
+        <div class="hsl_lightness"></div>
+    </section>
+
+    <section class="slide">
+        <h2>HSL()</h2>
+        <p>А зачем?<span class="next"> Потому что это удобно.</span></p>
+        <error>картинка</error>
+    </section>
+
+    <section class="slide">
+        <h2>HSL()</h2>
+        <pre class="small">
+            <code>/*</code>
+            <code> * @param {&lt;number> | &lt;angle>} --hue Оттенок, угол цветового круга</code>
+            <code> * @param {&lt;percentage>} --saturation Насыщенность</code>
+            <code> * @param {&lt;percentage>} --lightness Яркость</code>
+            <code> * @param {&lt;number> | &lt;percentage>} [--alpha: 100%] Прозрачность</code>
+            <code> */</code>
+            <code>color: hsl (var(--hue) var(--saturation) var(--lightness) / var(--alpha));</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>HWB()</h2>
+        <p>Повернём rgb-куб в другие полярные координаты.</p>
+        <error>картинка</error>
+        <ul>
+            <li>Hue</li>
+            <li>Whiteness</li>
+            <li>Blackness</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Hue</h2>
+        <p>Тон цвета, представленный в виде угла цветового круга.</p>
+        <div class="hwb_round"></div>
+        <div class="hwb_hue"></div>
+    </section>
+
+    <section class="slide">
+        <h2>Whiteness</h2>
+        <p>Количество белого в цвете</p>
+        <div class="hwb_whiteness"></div>
+    </section>
+
+    <section class="slide">
+        <h2>Blackness</h2>
+        <p>Количество черного в цвете</p>
+        <div class="hwb_blackness"></div>
+    </section>
+
+    <section class="slide">
+        <h2>HWB()</h2>
+        <p>А зачем? <span class="next">Потому что это удобно</span></p>
+        <img src="accest/hwb_colorpicker.png" alt="">
+    </section>
+
+    <section class="slide">
+        <h2>HWB()</h2>
+        <pre class="small">
+            <code>/*</code>
+            <code> * @param {&lt;number> | &lt;angle>} --hue Оттенок, угол цветового круга</code>
+            <code> * @param {&lt;percentage>} --whiteness Белизна</code>
+            <code> * @param {&lt;percentage>} --blackness Чернота</code>
+            <code> * @param {&lt;number> | &lt;percentage>} [--alpha: 100%] Прозрачность</code>
+            <code> */</code>
+            <code>color: hwb (var(--hue) var(--whiteness) var(--blackness) / var(--alpha));</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>LAB()</h2>
+        <p>Система, разномерная для человеческого глаза</p>
+        <img src="accest/lab.jpg" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2>Lightness</h2>
+        <p>CIE яркость</p>
+        <div class="lab_lightness"></div>
+    </section>
+
+    <section class="slide">
+        <h2>B</h2>
+        <p>От синего до желтого</p>
+        <div class="lab_b"></div>
+    </section>
+
+    <section class="slide">
+        <h2>A</h2>
+        <p>От красного до зеленого</p>
+        <div class="lab_a"></div>
+    </section>
+
+    <section class="slide">
+        <h2>LAB()</h2>
+        <pre class="small">
+            <code>/*</code>
+            <code> * @param {&lt;percentage>} --lightness Яркость CIE</code>
+            <code> * @param {&lt;number>} --a От зеленого до красного</code>
+            <code> * @param {&lt;number>} --b От синего до желтого</code>
+            <code> * @param {&lt;number> | &lt;percentage>} [--alpha: 100%] Прозрачность</code>
+            <code> */</code>
+            <code>color: lab (var(--lightness) var(--a) var(--b) / var(--alpha));</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>LAB()</h2>
+        <p>А зачем? <span class="next">Эта система разномерна для человеческого глаза.</span></p>
+        <img src="accest/CIE_XY.jpeg" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2>LCH()</h2>
+        <p>CIE LAB в полярных координатах</p>
+        <img src="accest/lch.png" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2>HUE</h2>
+        <p>Угол цветового круга (другого!)</p>
+        <div class="lch_round"></div>
+        <div class="lch_hue"></div>
+    </section>
+
+    <section class="slide">
+        <h2>Chroma</h2>
+        <p>Количество цвета</p>
+        <div class="lch_chroma"></div>
+    </section>
+
+    <section class="slide">
+        <h2>Lightness</h2>
+        <p>CIE яркость</p>
+        <div class="lch_lightness"></div>
+    </section>
+
+    <section class="slide">
+        <h2>LCH()</h2>
+        <pre class="small">
+            <code>/*</code>
+            <code> * @param {&lt;percentage>} --lightness Яркость CIE</code>
+            <code> * @param {&lt;number[0,132]>} --chroma Количество цвета</code>
+            <code> * @param {&lt;number> | &lt;angle>} --hue Оттенок, угол цветового круга</code>
+            <code> * @param {&lt;number> | &lt;percentage>} [--alpha: 100%] Прозрачность</code>
+            <code> */</code>
+            <code>color: lch (var(--lightness) var(--chroma) var(--hue) / var(--alpha));</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>CMYK</h2>
+        <p>Пространство оперирует смешением не цветов, а типографских красок.</p>
+        <img src="accest/cmyk.gif" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2>CMYK</h2>
+        <p style="text-align: center">Аддитивный синтез цветов VS Субтрактивный синтез цветов</p>
+        <img src="accest/cmyk_sub.jpeg" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2>CMYK()</h2>
+        <pre class="small" style="transform: translateY(-20px)">
+            <code>/*</code>
+            <code> * @param {&lt;number> | &lt;percentage>} --cyan Голубой</code>
+            <code> * @param {&lt;number> | &lt;percentage>} --magenta Пурпурный</code>
+            <code> * @param {&lt;number> | &lt;percentage>} --yellow Жёлтый</code>
+            <code> * @param {&lt;number> | &lt;percentage>} --black Чёрный</code>
+            <code> * @param {&lt;number> | &lt;percentage>} [--alpha: 100%] Прозрачность</code>
+            <code> * @param {&lt;color>} [--color: naively convert] Запасной цвет</code>
+            <code>*/</code>
+            <code>color: device-cmyk( var(--cyan) var(--magenta) var(--yellow)</code>
+            <code>  var(--black) / var(--alpha) var(--color));</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>color()</h2>
+        <p>Можно управлять цветовым пространство рендеринга.</p>
+    </section>
+
+    <section class="slide">
+        <h2>color()</h2>
+        <pre class="small">
+            <code>/*</code>
+            <code> * @param {&lt;ident> | &lt;dashed-ident>} --color_space Имя пространства</code>
+            <code> * @param {&lt;number[0,1]>} --red Красный канал</code>
+            <code> * @param {&lt;number[0,1]>} --green Зелёный канал</code>
+            <code> * @param {&lt;number[0,1]>} --blue Синий канал</code>
+            <code> * @param {&lt;number> | &lt;percentage>} [--alpha: 100%] Прозрачность</code>
+            <code> */</code>
+            <code>color: color (var(--color_space) var(--red) var(--green)</code>
+            <code>  var(--blue) / var(--alpha));</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>color()</h2>
+        <p class="next"><code>color(sRGB 1 0 0)</code><span class="color" style="--c: color(sRGB 1 0 0)"></span></p>
+        <p class="next"><code>color(display-p3 1 0 0)</code><span class="color" style="--c: color(rec2020 1 0 0)"></span></p>
+        <p class="next"><code>color(rec2020 1 0 0)</code><span class="color" style="--c: color(rec2020 1 0 0)"></span></p>
+    </section>
+
+    <section class="slide">
+        <h2>Out Of Gamut</h2>
+        <p>Мы можем задать цвет, который не может показать это устройство.</p>
+        <img src="accest/p3_srgb.png" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2>Out Of Gamut</h2>
+        <p>
+            <code>lch(50% 80 270)</code>->
+            <code>rgb(-93 124 257)</code>
+            <span class="color" style="--c: lch(50% 80 270)"></span>
+        </p>
+        <img src="accest/calc_1.png" alt="" class="picture">
+    </section>
+
+    <section class="slide">
+        <h2>Rendering intent</h2>
+        <p>- "способ рендеринга", способ отрисовать цвет вне текущего охвата.</p>
+        <ul>
+            <li>относительный колориметрический</li>
+            <li>абсолютный колориметрический</li>
+            <li>перцептивный</li>
+            <li>по насыщенности</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Rendering intent</h2>
+        <p>1. Относительный колориметрический.</p>
+        <p><code>lch(50% 80 270)</code>  <span class="color" style="--c: lch(50% 80 270)"></span> -> <br>
+            <code>rgb(-93 124 257)</code> <span class="color" style="--c: lch(50% 80 270)"></span> -> <br>
+            <code>rgb(0 124 257)</code> <span class="color" style="--c: rgb(0 124 257)"></span>
+        </p>
+        <p>+ двигаем точку белого </p>
+    </section>
+
+    <section class="slide">
+        <h2>Rendering intent</h2>
+        <p>1. Относительный колориметрический.</p>
+        <p class="one_color"></p>
+        <error>пример для одномерного пространсва</error>
+    </section>
+
+    <section class="slide">
+        <h2>Rendering intent</h2>
+        <p>2. Абсолютный колориметрический.</p>
+        <p><code>lch(50% 80 270)</code>  <span class="color" style="--c: lch(50% 80 270)"></span> -> <br>
+            <code>rgb(-93 124 257)</code> <span class="color" style="--c: lch(50% 80 270)"></span> -> <br>
+            <code>rgb(0 124 257)</code> <span class="color" style="--c: rgb(0 124 257)"></span>
+        </p>
+        <p>+ не трогаем точку белого </p>
+    </section>
+
+    <section class="slide">
+        <h2>Rendering intent</h2>
+        <p>2. Абсолютный колориметрический.</p>
+        <error>пример для одномерного пространсва</error>
+    </section>
+
+    <section class="slide">
+        <h2>Rendering intent</h2>
+        <p>3. Перцептивный.</p>
+        <error>пример для одномерного пространсва</error>
+    </section>
+
+    <section class="slide">
+        <h2>Rendering intent</h2>
+        <p>4. По насыщенности.</p>
+        <error>пример для одномерного пространсва</error>
+    </section>
+
+    <section class="slide">
+        <h2>Градиенты</h2>
+        <p>Все градиенты отрисовываются в sRGB</p>
+    </section>
+
+    <section class="slide">
+        <h2>Взгляд в близкое будущее</h2>
+    </section>
+
+    <section class="slide">
+        <h2>нам нужен р3</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Взгляд в далекое будущее</h2>
+    </section>
+
+    <section class="slide">
+        <h2>color-mix()</h2>
+    </section>
+
+    <section class="slide">
+        <h2>color-contrast()</h2>
+    </section>
+
+    <section class="slide">
+        <h2>relative syntax</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Источники и ссылки</h2>
+        <ul>
+            <li>Про цвета на <a href="https://css-live.ru/css/css-colors.html" target="_blank">CSS LIVE</a></li>
+            <li>Основы теории цвета на <a href="https://habr.com/ru/post/209738/" target="_blank">хабре</a></li>
+            <li>Основы ЦВЕТОВОГО восприятия на <a href="https://www.cambridgeincolour.com/ru/tutorials-ru/color-perception.html" target="_blank">cambridgeincolou</a></li>
+            <li>Перевод статьи Лии Веру <a href="https://habr.com/ru/company/ruvds/blog/496966/" target="_blank">про LCH</a></li>
+            https://www.cambridgeincolour.com/tutorials/color-space-conversion.htm
+            https://creativepro.com/out-of-gamut-realizing-good-intentions-with-rendering-intents/
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>София Валитова из <a href="https://vk.com">ВКонтакте</a></h2>
+        <ul>
+            <li><a>ariarzer@gmail.com</a></li>
+            <li>Twitter – <a href="https://twitter.com/ariarzer" target="_blank">@ariarzer</a></li>
+            <li>ВКонтакте – <a href="https://vk.com/ariarzer" target="_blank">@ariarzer</a></li>
+            <li>Telegram – <a href="https://twitter.com/ariarzer" target="_blank">@ariarzer</a></li>
+        </ul>
+
+        <p>Презентация сделана с помощью <a href="https://shwr.me/">Shower</a></p>
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Fork me on GitHub</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="shower/shower.min.js"></script>
+</body>
+</html>
+
+
