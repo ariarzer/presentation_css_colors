@@ -7,12 +7,6 @@
     color: inherit;
 }
 
-.out-of-gamut_relative_top {
-    height: var(--size);
-    width: calc(var(--size) * 15);
-    background-image: linear-gradient(to left, #fff, #000);
-}
-
 .out-of-gamut_relative:before {
     background-image: url(../accest/relative_rendering.svg);
     background-size: cover;
@@ -25,43 +19,36 @@
     position: absolute;
 }
 
-.out-of-gamut_relative_bottom {
-    height: var(--size);
-    width: 50%;
-    margin: auto;
-    margin-top: calc(var(--size) * 2);
-    background-image: linear-gradient(to left, #bbb, #444);
-}
-
-
-.out-of-gamut_perceptual {
-    width: fit-content;
-    margin: auto;
-
-    --size: 40px;
-    position: relative;
-    color: inherit;
-}
-
-.out-of-gamut_perceptual_top {
+.out-of-gamut_relative_top {
     height: var(--size);
     width: calc(var(--size) * 15);
     background-image: linear-gradient(to left, #fff, #000);
 }
 
-.out-of-gamut_perceptual:before {
-    background-image: url(../accest/perceptual_rendering.svg);
-    background-size: cover;
-    height: calc(var(--size) * 3);
-    width: calc(100%);
-    left: 0;
-    top: calc(var(--size) / 2);
-    content: "";
-    display: block;
+.out-of-gamut_relative_top::before,
+.out-of-gamut_relative_top::after {
+    content: 'out of gamut';
     position: absolute;
+    color: #f44;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    width: 25%;
+    height: var(--size);
+    line-height: var(--size);
+    top: 0;
+    vertical-align: middle;
+    text-align: center;
 }
 
-.out-of-gamut_perceptual_bottom {
+.out-of-gamut_relative_top::before {
+    left: 0;
+}
+
+.out-of-gamut_relative_top::after {
+    right: 0;
+}
+
+.out-of-gamut_relative_bottom {
     height: var(--size);
     width: 50%;
     margin: auto;

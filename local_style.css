@@ -12,5 +12,70 @@
     width: 1em;
     background-color: var(--c);
     vertical-align: middle;
-    margin: 2px 2px 2px 10px;
+    margin: 2px 10px 2px 10px;
+}
+
+.color.big {
+    height: 2em;
+    width: 2em;
+}
+
+.pixels,
+.pixel {
+    background-image: linear-gradient(to right,
+        color(srgb 1 0 0 / var(--ro, 1)) 33%,
+        color(srgb 0 1 0 / var(--go, 1)) 33%,
+        color(srgb 0 1 0 / var(--go, 1)) 66%,
+        color(srgb 0 0 1 / var(--bo, 1)) 66%,
+        color(srgb 0 0 1 / var(--bo, 1)) 99%
+    );
+    background-color: #000;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.pixel {
+    height: 1em;
+    width: 3em;
+}
+
+.pixels {
+    height: 60%;
+    width: 100%;
+}
+
+.palette div {
+    height: 1em;
+    width: 200px;
+    line-height: 1em;
+}
+
+.palette div:nth-child(1)  {background-color: hsl( var(--color), 100%,  10%);}
+.palette div:nth-child(2)  {background-color: hsl( var(--color), 100%,  20%);}
+.palette div:nth-child(3)  {background-color: hsl( var(--color), 100%,  30%);}
+.palette div:nth-child(4)  {background-color: hsl( var(--color), 100%,  40%);}
+.palette div:nth-child(5)  {background-color: hsl( var(--color), 100%,  50%);}
+.palette div:nth-child(6)  {background-color: hsl( var(--color), 100%,  60%);}
+.palette div:nth-child(7)  {background-color: hsl( var(--color), 100%,  70%);}
+.palette div:nth-child(8)  {background-color: hsl( var(--color), 100%,  80%);}
+.palette div:nth-child(9)  {background-color: hsl( var(--color), 100%,  90%);}
+.palette div:nth-child(10) {background-color: hsl( var(--color), 100%, 100%);}
+
+
+.hover_animation_example button {
+    border: none;
+    padding: 10px 15px;
+    font-size: inherit;
+    border-radius: 5px;
+}
+.hover_animation_example span {
+    margin: 0 20px;
+}
+
+.hover_animation_example button:nth-of-type(1) {
+    background-color: hsl(200, 100%, 40%);
+}
+
+.hover_animation_example button:nth-of-type(2) {
+    background-color: hsl(200, 100%, 50%);
 }
