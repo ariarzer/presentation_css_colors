@@ -9,9 +9,11 @@
   "dependencies": {
     "@shower/core": "^3.2.0",
     "@shower/ribbon": "^3.2.2",
+    "colord": "^2.9.2",
     "shower-core": "^2.1.0"
   },
   "devDependencies": {
     "@shower/cli": "^0.2.8"
-  }
+  },
+ "type": "module"
 }

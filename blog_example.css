@@ -1,0 +1,49 @@
+.example {
+    --h: 123;
+    --n-ch: 0 var(--h);
+    --c-ch: 40 var(--h);
+    --bg_main: lch(100% var(--n-ch));
+    --text_header: lch(50% var(--c-ch));
+    --text_primary: lch(2% var(--c-ch));
+    --text_reverse: lch(98% var(--n-ch));
+    --accent-cover-primary: lch(60% var(--c-ch));
+    --accent-cover-secondary: lch(90% var(--c-ch));
+
+    background: var(--bg_main);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.example .h1 {
+    font-size: 27px;
+    font-weight: bold;
+    color: var(--text_header);
+}
+
+.example .text {
+    font-size: 14px;
+    color: var(--text_primary);
+    margin-bottom: 0;
+}
+
+.example .h2 {
+    font-size: 18px;
+    color: var(--text_reverse);
+    background-color: var(--accent-cover-primary);
+    padding: 0 10px;
+}
+
+.example .article .text {
+    margin: 10px 0;
+}
+
+.example .article {
+    background-color: var(--accent-cover-secondary);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.example .article * {
+    padding: 0 10px;
+}

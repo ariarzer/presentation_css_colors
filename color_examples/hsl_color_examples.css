@@ -107,3 +107,72 @@
 .hsl_lightness:before {
     content: '100%';
 }
+
+.hsl_text_h {
+    background: linear-gradient(45deg,
+    hsl(0, 100%, 50%),
+    hsl(45, 100%, 50%),
+    hsl(90, 100%, 50%),
+    hsl(135, 100%, 50%),
+    hsl(180, 100%, 50%),
+    hsl(225, 100%, 50%),
+    hsl(270, 100%, 50%),
+    hsl(315, 100%, 50%),
+    hsl(0, 100%, 50%)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: white 0 0 15px;
+}
+
+.hsl_text_l {
+    background: linear-gradient(45deg,
+    hsl(0, 100%, 0%),
+    hsl(0, 100%, 10%),
+    hsl(0, 100%, 20%),
+    hsl(0, 100%, 30%),
+    hsl(0, 100%, 40%),
+    hsl(0, 100%, 50%),
+    hsl(0, 100%, 60%),
+    hsl(0, 100%, 70%),
+    hsl(0, 100%, 80%),
+    hsl(0, 100%, 90%),
+    hsl(0, 100%, 100%)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: white 0 0 15px;
+}
+
+.hsl_text_s {
+    background: linear-gradient(45deg,
+    hsl(0, 0%, 50%),
+    hsl(0, 10%, 50%),
+    hsl(0, 20%, 50%),
+    hsl(0, 30%, 50%),
+    hsl(0, 40%, 50%),
+    hsl(0, 50%, 50%),
+    hsl(0, 60%, 50%),
+    hsl(0, 70%, 50%),
+    hsl(0, 80%, 50%),
+    hsl(0, 90%, 50%),
+    hsl(0, 100%, 50%)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: white 0 0 15px;
+}
+
+.hue_hsl::-webkit-slider-runnable-track {
+    background-image: linear-gradient(45deg,
+    hsl(0, 100%, 50%),
+    hsl(45, 100%, 50%),
+    hsl(90, 100%, 50%),
+    hsl(135, 100%, 50%),
+    hsl(180, 100%, 50%),
+    hsl(225, 100%, 50%),
+    hsl(270, 100%, 50%),
+    hsl(315, 100%, 50%),
+    hsl(0, 100%, 50%)
+    );
+}

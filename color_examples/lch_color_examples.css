@@ -117,3 +117,25 @@
 .lch_chroma:before {
     content: '';
 }
+
+.hue_lch::-webkit-slider-runnable-track {
+    background-image: linear-gradient(to right,
+    lch(50% 80 0),
+    lch(50% 80 22.5),
+    lch(50% 80 45),
+    lch(50% 80 67.5),
+    lch(50% 80 90),
+    lch(50% 80 112.5),
+    lch(50% 80 135),
+    lch(50% 80 157.5),
+    lch(50% 80 180),
+    lch(50% 80 202.5),
+    lch(50% 80 225),
+    lch(50% 80 247.5),
+    lch(50% 80 270),
+    lch(50% 80 292.5),
+    lch(50% 80 315),
+    lch(50% 80 337.5),
+    lch(50% 80 0 )
+    );
+}

@@ -8,16 +8,35 @@
 
 .color {
     height: 1em;
+    min-width: 0.9em;
     display: inline-block;
-    width: 1em;
-    background-color: var(--c);
+    line-height: 1;
+    padding: 0.3em;
+    background-color: var(--c) !important;
+    border-radius: 0.2em;
     vertical-align: middle;
     margin: 2px 10px 2px 10px;
+
+    color: color-contrast(var(--c) vs #A9B7C6, #2B2B2B);
+}
+div.color {
+    width: fit-content;
+    display: block;
 }
 
 .color.big {
     height: 2em;
     width: 2em;
+}
+
+div.code,
+.color {
+    font-family: 'PT Mono', monospace;
+    background: var(--color-fill);
+    padding: 0.2em 0.3em;
+    line-height: 1;
+    margin: 0.5em 0.3em;
+    border-radius: 0.2em;
 }
 
 .pixels,
@@ -61,7 +80,6 @@
 .palette div:nth-child(9)  {background-color: hsl( var(--color), 100%,  90%);}
 .palette div:nth-child(10) {background-color: hsl( var(--color), 100%, 100%);}
 
-
 .hover_animation_example button {
     border: none;
     padding: 10px 15px;
@@ -73,9 +91,41 @@
 }
 
 .hover_animation_example button:nth-of-type(1) {
-    background-color: hsl(200, 100%, 40%);
+    background-color: hsl(200, 50%, 50%);
+}
+.hover_animation_example button:nth-of-type(2) {
+    background-color: hsl(200, 50%, 60%);
+
+}.hover_animation_example button:nth-of-type(3) {
+    background-color: hsl(200, 50%, 40%);
 }
 
-.hover_animation_example button:nth-of-type(2) {
-    background-color: hsl(200, 100%, 50%);
+.full_image {
+    position: absolute;
+    top: 50%; left: 50%;
+    max-height: 100%;
+    max-width: 100%;
+    transform: translate(-50%, -50%);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    height: 30px;
+    width: 15px;
+    margin-top: -5px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px var(--bg);
+
+    -webkit-appearance: none;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    background-color: transparent;
+    width: 80%;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    border-radius: 10px;
+    height: 20px;
 }
