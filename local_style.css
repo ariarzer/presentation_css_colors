@@ -122,10 +122,33 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"] {
     -webkit-appearance: none;
     background-color: transparent;
+}
+
+h2 > input[type="range"]:first-child {
     width: 80%;
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
     border-radius: 10px;
     height: 20px;
+}
+
+input[type="radio"] {
+    font-size: inherit;
+    vertical-align: top;
+    border-radius: 50%;
+    border: 0.1em solid var(--ORANGE);
+    height: 0.8em;
+    width: 0.8em;
+    appearance: none;
+    background-color: transparent;
+    color: var(--bg);
+}
+
+input[type="radio"]:hover {
+    background-color: #fff2;
+}
+
+input[type="radio"]:checked {
+    background-image: radial-gradient(var(--ORANGE) 50%, transparent 50%, transparent);
 }

@@ -59,20 +59,19 @@
         <h2>Приходим мы в проект...</h2>
         <p class="">
             <span class="color" style="--c: #5181b8">#5181b8</span>
-            <span class="color" style="--c: lch(52.46% 35.1 263.87)">lch(52.46% 35.1 263.87)</span>
-            <span class="color" style="--c: #5182b8">#5182b8</span>
-            <span class="color" style="--c: #5281b8">#5281b8</span>
+            <span class="color" style="--c: lch(52.46% 43.1 263.87)">lch(52.4% 35. 263)</span>
+            <span class="color" style="--c: #6186b5">#6186b5</span>
+            <span class="color" style="--c: hsl(205, 47%, 49%)">hsl(205, 47%, 49%)</span>
             <span class="color" style="--c: #5381b8">#5381b8</span>
-            <span class="color" style="--c: #5281b9">#5281b9</span>
+            <span class="color" style="--c: lch(54.61% 29.43 263.18)">lch(54% 29 263)</span>
             <span class="color" style="--c: #5081b8">#5081b9</span>
             <span class="color" style="--c: #5282b8">#5282b8</span>
-            <span class="color" style="--c: #5384b8">#5384b8</span>
+            <span class="color" style="--c: rgb(83, 148, 184)">rgb(83, 148, 184)</span>
             <span class="color" style="--c: #5084b8">#5084b8</span>
-            <span class="color" style="--c: #5384b8">#5384b8</span>
+            <span class="color" style="--c: hsl(218, 63%, 59%)">hsl(218, 63%, 59%)</span>
             <span class="color" style="--c: #5383b8">#5383b8</span>
         </p>
         <p class="next">Одинаковые, но разные 😭 😭 😭</p>
-        <error>разные форматы</error>
     </section>
 
     <section class="slide">
@@ -91,7 +90,7 @@
 
     <section class="slide">
         <h2>Что такое палитра?</h2>
-        <pre>
+        <pre class="small">
             <code>:root {</code>
             <code>  --accent: <span class="color" style="--c: #5181b8">#5181b8</span></code>
             <code>  --text: <span class="color" style="--c: #000000">#000000</span></code>
@@ -728,12 +727,6 @@
                 example_hsl_example_range.style.setProperty('--h', e.target.value)
             })
         </script>
-
-        <style>
-            #hsl_example_range .input {
-                
-            }
-        </style>
     </section>
 
     <section class="slide">
@@ -743,10 +736,6 @@
         <br>
         <div class="code">--accent_hs: var(--hue), 60%;</div>
         <div class="code">--normal_hs: var(--hue), 0%</div>
-    </section>
-
-    <section class="slide">
-        <error>возможно здесь будет про два акцентных цвета</error>
     </section>
 
     <section class="slide">
@@ -808,7 +797,7 @@
                 <div class="code">var(--accent_hs)</div>
                 <div class="code">var(--accent_hs)</div>
             </div>
-            <div>
+            <div style="font-weight: bold">
                 <div class="code"> 100%)</div>
                 <div class="code"> 30%)</div>
                 <div class="code"> 2%)</div>
@@ -838,7 +827,7 @@
                 <div class="code">var(--accent_hs)</div>
                 <div class="code">var(--accent_hs)</div>
             </div>
-            <div>
+            <div style="font-weight: bold">
                 <div class="code"> var(--l-100))</div>
                 <div class="code"> var(--l-30))</div>
                 <div class="code"> var(--l-2))</div>
@@ -903,25 +892,6 @@
                 display: flex;
                 gap: 0.5em;
             }
-
-            .theme_thumbler input {
-                font-size: inherit;
-                border-radius: 50%;
-                border: 4px solid var(--ORANGE);
-                height: 0.8em;
-                width: 0.8em;
-                appearance: none;
-                background-color: transparent;
-                color: var(--bg);
-            }
-
-            .theme_thumbler input:hover {
-                background-color: #fff2;
-            }
-
-            .theme_thumbler input:checked {
-                background-image: radial-gradient(var(--ORANGE) 50%, transparent 50%, transparent);
-            }
         </style>
 
         <div class="example" theme='light'>
@@ -951,7 +921,7 @@
         </script>
 
         <style>
-            .example[theme='light'] {
+            #hls_example_lightness .example[theme='light'] {
                 --l-100: 100%;
                 --l-30: 30%;
                 --l-2: 2%;
@@ -960,7 +930,7 @@
                 --l-90: 90%;
             }
 
-            .example[theme='dark'] {
+            #hls_example_lightness .example[theme='dark'] {
                 --l-100: 0%;
                 --l-30: 70%;
                 --l-98: 2%;
@@ -1081,6 +1051,19 @@
                 <p class="text">--text_primary: lch(2% 0 123) + --accent-cover-secondary: lch(90% 50 123)</p>
             </div>
         </div>
+        <style>
+            .lch_example .example {
+                --h: 123;
+                --n-ch: 0 var(--h);
+                --c-ch: 40 var(--h);
+                --bg_main: lch(100% var(--n-ch));
+                --text_header: lch(50% var(--c-ch));
+                --text_primary: lch(2% var(--c-ch));
+                --text_reverse: lch(98% var(--n-ch));
+                --accent-cover-primary: lch(60% var(--c-ch));
+                --accent-cover-secondary: lch(90% var(--c-ch));
+            }
+        </style>
     </section>
 
     <section class="slide">
@@ -1118,17 +1101,27 @@
         </div>
     </section>
 
-    <section class="slide lch_example" id="lch_example_range">
-        <h2>
-            <input type="range" max="360" min="0" class="input hue_lch" value="123">
+    <section class="slide lch_example" id="lch_example_range_theme">
+        <h2 style="display: flex;gap: 1em; width: 85%;margin-bottom: 1em">
+            <div style="font-size: 30px; display: flex;gap:0.5em">
+                <label>
+                    Dark
+                    <input type="radio" class="input theme" value="dark" name="theme">
+                </label>
+                <label>
+                    Light
+                    <input type="radio" class="input theme" value="light" name="theme" checked>
+                </label>
+            </div>
+            <input type="range" max="360" min="0" class="input hue_lch" value="123" style="width: auto; flex-grow: 1">
         </h2>
-        <div class="example">
+        <div class="example"  theme='light'>
             <div class="h1">Большой заголовок</div>
             <p class="text">Маленький текст о том, что это за блог</p>
             <div class="article">
                 <div class="h2">Заголовок поста блога</div>
                 <p class="text">Довольно длинный текст поста, тут можно поговорить о котиках, о мягких котячьих лапках,
-                    о котиьх ушках, о том, как котики мурлыкают и делают ке-ке-ке.</p>
+                    о котиьх ушках.</p>
             </div>
             <div class="article">
                 <div class="h2">Заголовок второго поста</div>
@@ -1137,31 +1130,70 @@
             </div>
         </div>
         <script>
-            const example_lch_example_range = document.querySelector('#lch_example_range .example');
-            const input_lch_example_range = document.querySelector('#lch_example_range .input');
+            const example_lch_example_range_theme = document.querySelector('#lch_example_range_theme .example');
+            const input_lch_example_range = document.querySelector('#lch_example_range_theme input[type="range"]');
             input_lch_example_range.addEventListener('mousemove', (e) => {
-                example_lch_example_range.style.setProperty('--h', e.target.value)
+                example_lch_example_range_theme.style.setProperty('--h', e.target.value)
             })
+
+            const input_lch_example_lightness_theme = document.querySelectorAll('#lch_example_range_theme input[type="radio"]');
+            console.log(input_lch_example_lightness_theme);
+            input_lch_example_lightness_theme.forEach((input) => {
+                input.addEventListener('change', (e) => {
+                    example_lch_example_range_theme.setAttribute('theme', e.target.value);
+                    console.log(e);
+                });
+            });
         </script>
         <style>
-            .lch_example .example {
+            #lch_example_range_theme .example {
                 --h: 123;
                 --n-ch: 0 var(--h);
                 --c-ch: 40 var(--h);
-                --bg_main: lch(100% var(--n-ch));
-                --text_header: lch(50% var(--c-ch));
-                --text_primary: lch(2% var(--c-ch));
-                --text_reverse: lch(98% var(--n-ch));
-                --accent-cover-primary: lch(60% var(--c-ch));
-                --accent-cover-secondary: lch(90% var(--c-ch));
+                --bg_main: lch(var(--l-100) var(--n-ch));
+                --text_header: lch(var(--l-50) var(--c-ch));
+                --text_primary: lch(var(--l-2) var(--c-ch));
+                --text_reverse: lch(var(--l-98) var(--n-ch));
+                --accent-cover-primary: lch(var(--l-60) var(--c-ch));
+                --accent-cover-secondary: lch(var(--l-90) var(--c-ch));
+            }
+
+            #lch_example_range_theme .example[theme='light'] {
+                --l-100: 100%;
+                --l-50: 50%;
+                --l-2: 2%;
+                --l-98: 98%;
+                --l-60: 60%;
+                --l-90: 90%;
+            }
+
+            #lch_example_range_theme .example[theme='dark'] {
+                --l-100: 0%;
+                --l-50: 50%;
+                --l-98: 2%;
+                --l-2: 98%;
+                --l-60: 60%;
+                --l-90: 10%;
             }
         </style>
     </section>
 
-    <section class="slide" id="compare_example_range">
-        <h2><input type="range" max="360" min="0" class="input" value="123"></h2>
+    <section class="slide" id="compare_example_range_theme">
+        <h2 style="display: flex;gap: 1em; width: 85%;margin-bottom: 1em">
+            <div style="font-size: 30px; display: flex;gap:0.5em">
+                <label>
+                    Dark
+                    <input type="radio" class="input theme" value="dark" name="theme">
+                </label>
+                <label>
+                    Light
+                    <input type="radio" class="input theme" value="light" name="theme" checked>
+                </label>
+            </div>
+            <input type="range" max="360" min="0" class="input" value="123">
+        </h2>
         <div class="examples_list">
-            <div class="example hsl_example">
+            <div class="example hsl_example" theme='light'>
                 <div class="h1">HSL</div>
                 <p class="text">Маленький текст о том, что это за блог</p>
                 <div class="article">
@@ -1170,10 +1202,10 @@
                 </div>
                 <div class="article">
                     <div class="h2">Заголовок второго поста</div>
-                    <p class="text">Маленький текст поста..</p>
+                    <p class="text">Маленький текст поста.</p>
                 </div>
             </div>
-            <div class="example lch_example">
+            <div class="example lch_example" theme='light'>
                 <div class="h1">LCH</div>
                 <p class="text">Маленький текст о том, что это за блог</p>
                 <div class="article">
@@ -1182,67 +1214,101 @@
                 </div>
                 <div class="article">
                     <div class="h2">Заголовок второго поста</div>
-                    <p class="text">Маленький текст поста..</p>
+                    <p class="text">Маленький текст поста.</p>
                 </div>
             </div>
         </div>
         <script>
-            const example_compare_example_range_lch = document.querySelector('#compare_example_range .lch_example.example');
-            const example_compare_example_range_hsl = document.querySelector('#compare_example_range .hsl_example.example');
-            console.log(example_compare_example_range_hsl, example_compare_example_range_lch);
-            const input_compare_example_range = document.querySelector('#compare_example_range .input');
-            input_compare_example_range.addEventListener('mousemove', (e) => {
-                console.log(e.target.value);
-                example_compare_example_range_lch.style.setProperty('--h', e.target.value)
-                example_compare_example_range_hsl.style.setProperty('--h', e.target.value)
+            const example_compare_example_range_theme_hsl = document.querySelector('#compare_example_range_theme .lch_example.example');
+            const example_compare_example_range_theme_lch = document.querySelector('#compare_example_range_theme .hsl_example.example');
+            const input_compare_example_range_theme = document.querySelector('#compare_example_range_theme .input[type="range"]');
+            input_compare_example_range_theme.addEventListener('mousemove', (e) => {
+                example_compare_example_range_theme_hsl.style.setProperty('--h', e.target.value)
+                example_compare_example_range_theme_lch.style.setProperty('--h', e.target.value)
             })
+
+            const example_compare_example_theme_lch = document.querySelectorAll('#compare_example_range_theme input[type="radio"]');
+            console.log(input_lch_example_lightness_theme);
+            input_lch_example_lightness_theme.forEach((input) => {
+                input.addEventListener('change', (e) => {
+                    example_lch_example_range_theme.setAttribute('theme', e.target.value);
+                    console.log(e);
+                });
+            });
         </script>
         <style>
-            #compare_example_range input[type="range"]::-webkit-slider-runnable-track {
+            #compare_example_range_theme input[type="range"]::-webkit-slider-runnable-track {
                 background-color: currentColor;
             }
-            #compare_example_range .lch_example.example {
+            #compare_example_range_theme .lch_example.example {
                 --h: 123;
                 --n-ch: 0 var(--h);
                 --c-ch: 40 var(--h);
-                --bg_main: lch(100% var(--n-ch));
-                --text_header: lch(50% var(--c-ch));
-                --text_primary: lch(2% var(--c-ch));
-                --text_reverse: lch(98% var(--n-ch));
-                --accent-cover-primary: lch(60% var(--c-ch));
-                --accent-cover-secondary: lch(90% var(--c-ch));
+                --bg_main: lch(var(--l-100) var(--n-ch));
+                --text_header: lch(var(--l-50) var(--c-ch));
+                --text_primary: lch(var(--l-2) var(--c-ch));
+                --text_reverse: lch(var(--l-98) var(--n-ch));
+                --accent-cover-primary: lch(var(--l-60) var(--c-ch));
+                --accent-cover-secondary: lch(var(--l-90) var(--c-ch));
             }
 
-            #compare_example_range .hsl_example.example {
+            #compare_example_range_theme .hsl_example.example {
                 --h: 123;
-                --hs_a: var(--h), 60%;
-                --hs_n: var(--h), 0%;
-                --bg_main: hsl(var(--hs_n), 100%);
-                --text_header: hsl(var(--hs_a), 30%);
-                --text_primary: hsl(var(--hs_n), 2%);
-                --text_reverse: hsl(var(--hs_n), 98%);
-                --accent-cover-primary: hsl(var(--hs_a), 60%);
-                --accent-cover-secondary: hsl(var(--hs_a), 90%);
+                --ch: var(--h), 50%;
+                --bg_main: hsl(var(--ch), var(--l-100));
+                --text_header: hsl(var(--ch), var(--l-30));
+                --text_primary: hsl(var(--ch), var(--l-2));
+                --text_reverse: hsl(var(--ch), var(--l-98));
+                --accent-cover-primary: hsl(var(--ch), var(--l-60));
+                --accent-cover-secondary: hsl(var(--ch), var(--l-90));
             }
 
-            #compare_example_range .example {
+            #compare_example_range_theme .example {
                 flex-grow: 1;
                 display: inline-block;
                 height: min-content;
             }
-            #compare_example_range .examples_list {
+            #compare_example_range_theme .examples_list {
                 display: flex;
                 gap: 1em;
             }
+
+            #compare_example_range_theme .lch_example.example[theme='light'] {
+                --l-100: 100%;
+                --l-50: 50%;
+                --l-2: 2%;
+                --l-98: 98%;
+                --l-60: 60%;
+                --l-90: 90%;
+            }
+
+            #compare_example_range_theme .lch_example.example[theme='dark'] {
+                --l-100: 0%;
+                --l-50: 50%;
+                --l-98: 2%;
+                --l-2: 98%;
+                --l-60: 60%;
+                --l-90: 10%;
+            }
+
+            #compare_example_range_theme .hsl_example.example[theme='light'] {
+                --l-100: 100%;
+                --l-30: 30%;
+                --l-2: 2%;
+                --l-98: 98%;
+                --l-60: 60%;
+                --l-90: 90%;
+            }
+
+            #compare_example_range_theme .hsl_example.example[theme='dark'] {
+                --l-100: 0%;
+                --l-30: 70%;
+                --l-98: 2%;
+                --l-2: 98%;
+                --l-60: 60%;
+                --l-90: 20%;
+            }
         </style>
-    </section>
-
-    <section class="slide">
-        <error>демка с темной темой lch</error>
-    </section>
-
-    <section class="slide">
-        <error>сравнение демок с темной темой на lch b hsl</error>
     </section>
 
     <section class="slide">
@@ -1258,8 +1324,7 @@
     </section>
 
     <section class="slide big_color_example">
-        <error>скрин, что поддержка color() больше, чем lab и lch</error>
-        <error>видим функцию, она поддерживает, но что это?...</error>
+        <img src="./accest/can_i_use_color.png" alt="" class="full_image">
     </section>
 
     <section class="slide">
@@ -1338,9 +1403,39 @@
     </section>
 
     <section class="slide">
-        <h2>LAB - физический цвет</h2>
-        <p>- это значит, что он не зависит от монитора.*</p>
-        <error>дальше пара слайдов про мораль: проверяйте на старых мониторах</error>
+        <h2>Акценты для apple</h2>
+        <pre class="small">
+            <code>p {</code>
+            <code>  color: <span class="color" style="--c: #00c2c9">#00c2c9</span>;</code>
+            <code>}</code>
+            <code>@supports (color: lch(0% 0 0)) {</code>
+            <code>  p {</code>
+            <code>   color: <span class="color" style="--c: lch(70% 50 200)">lch(70% 50 200)</span>;</code>
+            <code>  }</code>
+            <code>}</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <img src="./accest/p3+srgb.jpeg" alt="" class="full_image">
+    </section>
+
+    <section class="slide">
+        <h2>Относительный колориметрический метод</h2>
+        <div class="color" style="--c: lch(50% 80 270)">lch(50% 80 270)</div>
+        <div class="next">Переводим в rgb() – <span class="color" style="--c:rgb(-93 124 257);">rgb(-93 124 257)</span></div>
+        <div class="next">Приводим в то, что можем отобразить – <span class="color" style="--c:rgb(0 124 257);">rgb(0 124 257)</span></div>
+    </section>
+
+    <section class="slide">
+        <h2>Относительный колориметрический метод</h2>
+        <div class="color" style="--c: lch(50% 80 270)">lch(50% 80 270)</div>
+        <div class="next">Переводим в rgb() – <span class="color" style="--c:rgb(-93 124 257);">rgb(-93 124 257)</span></div>
+        <div class="next">Приводим в то, что можем отобразить – <span class="color" style="--c:rgb(0 124 257);">rgb(0 124 257)</span></div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout small">Мораль: проверяйте на разных экранах</h2>
     </section>
 
     <section class="slide">

@@ -6,6 +6,6 @@ extend([lchPlugin, labPlugin]);
 
 let result;
 
-result = colord('#ff0000').toHslString();
+result = colord('lch(70% 50 200)').toHex()
 
 console.log(result);
