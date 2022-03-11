@@ -968,6 +968,10 @@
                 overflow: hidden;
             }
 
+            .big_color_example .color_example + .color_example {
+                margin-top: 1em;
+            }
+
             .big_color_example .color {
                 flex-grow: 1;
                 height: 100%;
@@ -984,7 +988,7 @@
     <section class="slide big_color_example">
         <h2>Почему не hsl?</h2>
         <p>2. Цветовой угол не однородный.</p>
-        <div class="color_example" style="height: 100px; margin-bottom: 1em">
+        <div class="color_example" style="height: 100px;">
             <div class="color" style="--c: hsl(30 100% 50%)">hsl(30 100% 50%)</div>
             <div class="color" style="--c: hsl(50 100% 50%)">hsl(50 100% 50%)</div>
         </div>
@@ -1429,9 +1433,10 @@
 
     <section class="slide">
         <h2>Относительный колориметрический метод</h2>
-        <div class="color" style="--c: lch(50% 80 270)">lch(50% 80 270)</div>
-        <div class="next">Переводим в rgb() – <span class="color" style="--c:rgb(-93 124 257);">rgb(-93 124 257)</span></div>
-        <div class="next">Приводим в то, что можем отобразить – <span class="color" style="--c:rgb(0 124 257);">rgb(0 124 257)</span></div>
+        <div class="out-of-gamut_relative" style="margin-top: 100px">
+            <div class="out-of-gamut_relative_top"></div>
+            <div class="out-of-gamut_relative_bottom"></div>
+        </div>
     </section>
 
     <section class="slide">
@@ -1540,7 +1545,7 @@
 
     <section class="slide">
         <h2>Относительный синтаксис цветов</h2>
-        <error>можно полифиллить, но не в рантайме</error>
+        <p>Можно полифиллить, но не в рантайме.</p>
     </section>
 
     <section class="slide">
@@ -1570,39 +1575,70 @@
         </ul>
     </section>
 
+    <section class="slide big_color_example">
+        <h2>Текст на пользовательском фоне</h2>
+        <div class="color_example" style="height: 150px; margin-bottom: 1em">
+            <div class="color" style="--c: hsl(200 100% 20%); color: currentColor">много много текста</div>
+        </div>
+        <div class="color_example" style="height: 150px; margin-bottom: 1em">
+            <div class="color" style="--c: hsl(30 100% 50%); color: currentColor">много много текста</div>
+        </div>
+    </section>
+
     <section class="slide">
         <h2>Текст на пользовательском фоне</h2>
-        <error>демка, где сначала все хорошо и контрастно, а потом меняется цвет подложки и становится ничего не прочитать</error>
+        <p>В этой презентации много примеров цвета.</p>
+        <div class="color" style="--c: lch(50% 50 100)">lch(50% 50 100)</div>
+        <div class="color" style="--c: lch(30% 80 250)">lch(30% 80 250)</div>
+        <div class="color" style="--c: lch(80% 70 300)">lch(80% 70 300)</div>
+        <code class="next">&lt;div class="color" style="--c: #fff"> #fff &lt;/div></code>
     </section>
 
     <section class="slide">
         <h2>Текст на пользовательском фоне</h2>
-        <error>пример прям из презы</error>
+        <pre>
+            <code>.color {</code>
+            <code>  background-color: var(--c);</code>
+            <code>  height: 1em;</code>
+            <code>  min-width: 1em;</code>
+            <code>  ...</code>
+            <code>}</code>
+        </pre>
     </section>
+
 
     <section class="slide">
         <h2>Текст на пользовательском фоне</h2>
-        <error>как я решила пример из презы</error>
+        <pre>
+            <code>.color {</code>
+            <code>  background-color: var(--c);</code>
+            <code>  color: color-contrast(var(--c) vs #fff, #000);</code>
+            <code>  height: 1em;</code>
+            <code>  min-width: 1em;</code>
+            <code>  ...</code>
+            <code>}</code>
+        </pre>
     </section>
 
     <section class="slide">
         <h2><code>color-contrast()</code></h2>
-        <error>про фукнцию</error>
+        <div class="code">color-contrast( &lt;color> vs &lt;color>#{2,} )</div>
+        <div class="code next">color-contrast(
+            <span class="color" style="--c: white">white</span>vs
+            <span class="color" style="--c: yellow">yellow</span>,
+            <span class="color" style="--c: black">black</span>)
+        </div>
+        <div class="code next ">color-contrast(
+            <span class="color" style="--c: lch(60% 70 300)">lch(80% 70 300)</span>vs
+            <span class="color" style="--c: lch(10% 70 300)">lch(10% 70 300)</span>,
+            <span class="color" style="--c: lch(100% 70 300)">lch(100% 70 300)</span>)
+        </div>
+        <error>демка, что оно работает в рантайме</error>
     </section>
 
-    <section class="slide">
-        <h2><code>color-contrast()</code></h2>
-        <error>пара примеров использования</error>
-    </section>
 
     <section class="slide">
-        <h2><code>color-contrast()</code></h2>
-        <error>слайд-разочарование в поддержке</error>
-    </section>
-
-    <section class="slide">
-        <h2><code>color-contrast()</code></h2>
-        <error>нельзя полифиллить в рантайме</error>
+        <img src="./accest/can_i_use_color_contrast.jpeg" alt="" class="full_image">
     </section>
 
     <section class="slide">
