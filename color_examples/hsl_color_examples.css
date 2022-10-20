@@ -163,6 +163,7 @@
     text-shadow: white 0 0 15px;
 }
 
+.input.hsl_h::-webkit-slider-runnable-track,
 .hue_hsl::-webkit-slider-runnable-track {
     background-image: linear-gradient(45deg,
     hsl(0, 100%, 50%),
@@ -174,5 +175,56 @@
     hsl(270, 100%, 50%),
     hsl(315, 100%, 50%),
     hsl(0, 100%, 50%)
+    );
+}
+
+.color_hsl_inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1em
+}
+
+#hsl_example_range_one {
+    --h: 123;
+    --s: 50%;
+    --l: 50%;
+}
+
+.color_hsl {
+    background-color: hsl(var(--h) var(--s) var(--l));
+    height: 5em;
+    border-radius: 0.5em;
+}
+
+
+.input.hsl_s::-webkit-slider-runnable-track {
+    background: linear-gradient(45deg,
+    hsl(var(--h), 0%, 50%),
+    hsl(var(--h), 10%, 50%),
+    hsl(var(--h), 20%, 50%),
+    hsl(var(--h), 30%, 50%),
+    hsl(var(--h), 40%, 50%),
+    hsl(var(--h), 50%, 50%),
+    hsl(var(--h), 60%, 50%),
+    hsl(var(--h), 70%, 50%),
+    hsl(var(--h), 80%, 50%),
+    hsl(var(--h), 90%, 50%),
+    hsl(var(--h), 100%, 50%)
+    );
+}
+
+.input.hsl_l::-webkit-slider-runnable-track {
+    background: linear-gradient(45deg,
+    hsl(var(--h), 100%, 0%),
+    hsl(var(--h), 100%, 10%),
+    hsl(var(--h), 100%, 20%),
+    hsl(var(--h), 100%, 30%),
+    hsl(var(--h), 100%, 40%),
+    hsl(var(--h), 100%, 50%),
+    hsl(var(--h), 100%, 60%),
+    hsl(var(--h), 100%, 70%),
+    hsl(var(--h), 100%, 80%),
+    hsl(var(--h), 100%, 90%),
+    hsl(var(--h), 100%, 100%)
     );
 }

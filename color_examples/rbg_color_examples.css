@@ -1,0 +1,29 @@
+.color_rgb {
+    --r: 123;
+    --g: 123;
+    --b: 123;
+    background-color: rgb(var(--r), var(--g), var(--b));
+    height: 5em;
+    border-radius: 0.5em;
+}
+
+.input.rgb_r::-webkit-slider-runnable-track  {
+    border: 1px solid currentColor;
+    background-image: linear-gradient(to left, red, transparent);
+}
+
+.input.rgb_g::-webkit-slider-runnable-track  {
+    border: 1px solid currentColor;
+    background-image: linear-gradient(to left, green, transparent);
+}
+
+.input.rgb_b::-webkit-slider-runnable-track  {
+    border: 1px solid currentColor;
+    background-image: linear-gradient(to left, blue, transparent);
+}
+
+.color_rgb_inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1em
+}

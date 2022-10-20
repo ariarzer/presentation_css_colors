@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="color_examples/hwb_color_examples.css">
     <link rel="stylesheet" href="color_examples/lch_color_examples.css">
     <link rel="stylesheet" href="color_examples/lab_color_examples.css">
+    <link rel="stylesheet" href="color_examples/rbg_color_examples.css">
+    <link rel="stylesheet" href="color_examples/compare.css">
     <link rel="stylesheet" href="color_examples/out-of-gamut_color_example.css">
     <style>
         .shower {
@@ -121,8 +123,6 @@
                 <div class="color" style="--c: #000800">#000800</div>
                 <div class="color" style="--c: #a1c1d8">#a1c1d8</div>
                 <div class="color" style="--c: #012168">#012168</div>
-
-                <error>дизайн</error>
             </div>
         </div>
     </section>
@@ -292,10 +292,36 @@
         </p>
     </section>
 
-    <section class="slide">
+    <section class="slide" id="rgb_example_range">
         <h2>RGB + RGBA</h2>
-        <error>слайд с ползунками, например, чтобы получить оранжевый цвет, нам нужно смешать...</error>
         <p>Сложно настраивать руками</p>
+        <div class="columns two">
+            <div class="color_rgb_inputs">
+                <input type="range" max="256" min="0" class="input rgb_r" value="123">
+                <input type="range" max="256" min="0" class="input rgb_g" value="123">
+                <input type="range" max="256" min="0" class="input rgb_b" value="123">
+            </div>
+
+            <div class="color_rgb"></div>
+
+        </div>
+        <script>
+            const input_rgb_r_example_range = document.querySelector('#rgb_example_range .input.rgb_r');
+            const input_rgb_g_example_range = document.querySelector('#rgb_example_range .input.rgb_g');
+            const input_rgb_b_example_range = document.querySelector('#rgb_example_range .input.rgb_b');
+
+            const rgb_example_color = document.querySelector('#rgb_example_range .color_rgb');
+
+            input_rgb_r_example_range.addEventListener('mousemove', (e) => {
+                rgb_example_color.style.setProperty('--r', e.target.value)
+            });
+            input_rgb_g_example_range.addEventListener('mousemove', (e) => {
+                rgb_example_color.style.setProperty('--g', e.target.value)
+            });
+            input_rgb_b_example_range.addEventListener('mousemove', (e) => {
+                rgb_example_color.style.setProperty('--b', e.target.value)
+            })
+        </script>
     </section>
 
     <section class="slide">
@@ -388,10 +414,36 @@
         </p>
     </section>
 
-    <section class="slide">
+    <section class="slide" id="hsl_example_range_one">
         <h2>HSL</h2>
-        <error>слайд с ползунками, например, чтобы получить оранжевый цвет, просто.... блабла</error>
         <p>Просто настраивать руками</p>
+        <div class="columns two">
+            <div class="color_hsl_inputs">
+                <input type="range" max="360" min="0" class="input hsl_h " value="123">
+                <input type="range" max="100" min="0" class="input hsl_s" value="50">
+                <input type="range" max="100" min="0" class="input hsl_l" value="50">
+            </div>
+
+            <div class="color_hsl"></div>
+
+        </div>
+        <script>
+            const input_hsl_h_example_range = document.querySelector('#hsl_example_range_one .input.hsl_h');
+            const input_hsl_s_example_range = document.querySelector('#hsl_example_range_one .input.hsl_s');
+            const input_hsl_l_example_range = document.querySelector('#hsl_example_range_one .input.hsl_l');
+
+            const hsl_example_color = document.querySelector('#hsl_example_range_one');
+
+            input_hsl_h_example_range.addEventListener('mousemove', (e) => {
+                hsl_example_color.style.setProperty('--h', e.target.value)
+            });
+            input_hsl_s_example_range.addEventListener('mousemove', (e) => {
+                hsl_example_color.style.setProperty('--s', e.target.value + '%')
+            });
+            input_hsl_l_example_range.addEventListener('mousemove', (e) => {
+                hsl_example_color.style.setProperty('--l', e.target.value + '%')
+            })
+        </script>
     </section>
 
     <section class="slide">
@@ -409,7 +461,6 @@
                 <p>цвета из палитры</p>
                 <div class="color" style="--c: #5181b8">#5181b8</div>
                 <div class="color" style="--c: #a1c1d8">#a1c1d8</div>
-                <error>дизайн</error>
             </div>
         </div>
         <p class="next onlyPrint">Нужно как-то соотнести. Желательно автоматически.</p>
@@ -418,8 +469,9 @@
     <section class="slide">
         <h2>Как мы можем сравнить два цвета?</h2>
         <h3>Может быть rgb-куб?</h3>
-        <p>Расстояние между двумя точками в пространстве:</p>
-        <error>формула</error>
+        <p style="margin-bottom: 0">Расстояние между двумя точками в пространстве:</p>
+        <p class="formula" style="margin-bottom: 0"><sup>3</sup><sqrt>(x<sup>2</sup> + y<sup>2</sup> + z<sup>2</sup>)</sqrt></p>
+        <p class="formula"><sup>3</sup><sqrt>(r<sup>2</sup> + g<sup>2</sup> + b<sup>2</sup>)</sqrt></p>
     </section>
 
     <section class="slide">
@@ -476,13 +528,7 @@
     <section class="slide">
         <h2>Как мы можем сравнить два цвета?</h2>
         <h3>Считаем расстояние и заменяем</h3>
-        <error>формула</error>
-    </section>
-
-    <section class="slide">
-        <h2>Как мы можем сравнить два цвета?</h2>
-        <h3>Считаем расстояние и заменяем</h3>
-        <error>примеры с конкретными 2-3 цветами</error>
+        <p class="formula"><sup>3</sup><sqrt>(l<sup>2</sup> + c<sup>2</sup> + h<sup>2</sup>)</sqrt></p>
     </section>
 
     <section class="slide">
@@ -541,11 +587,6 @@
             <code>});</code>
         </pre>
         <code class="next">postcss style.css --replace</code>
-    </section>
-
-    <section class="slide">
-        <h2>Готово</h2>
-        <error>слайд, где все хорошо</error>
     </section>
 
     <section class="slide">
@@ -957,8 +998,8 @@
         <h2>Почему не hsl?</h2>
         <p>1. Светлота не имеет ничего общего с визуальной яркостью.</p>
         <div class="color_example" style="height: 200px">
-            <div class="color" style="--c: hsl(60 100% 50%)">hsl(60 100% 50%)</div>
-            <div class="color" style="--c: hsl(240 100% 50%)">hsl(240 100% 50%)</div>
+            <div class="color" style="--c: hsl(30 100% 60%)">hsl(40 100% 50%)</div>
+            <div class="color" style="--c: hsl(160 100% 20%)">hsl(160 100% 50%)</div>
         </div>
         <style>
             .big_color_example .color_example {
@@ -1079,12 +1120,12 @@
         </div>
         <div style="display: flex; font-size: 20px">
             <div>
-                <div class="code">--bg_main: lsh(</div>
-                <div class="code">--text_header: lsh(</div>
-                <div class="code">--text_primary: lsh(</div>
-                <div class="code">--text_reverse: lsh(</div>
-                <div class="code">--accent-cover-primary: lsh(</div>
-                <div class="code">--accent-cover-secondary: lsh(</div>
+                <div class="code">--bg_main: lch(</div>
+                <div class="code">--text_header: lch(</div>
+                <div class="code">--text_primary: lch(</div>
+                <div class="code">--text_reverse: lch(</div>
+                <div class="code">--accent-cover-primary: lch(</div>
+                <div class="code">--accent-cover-secondary: lch(</div>
             </div>
             <div>
                 <div class="code"> var(--l-100)</div>
@@ -1194,7 +1235,9 @@
                     <input type="radio" class="input theme" value="light" name="theme" checked>
                 </label>
             </div>
-            <input type="range" max="360" min="0" class="input" value="123">
+            <div class="compare_theme_range_wrapper">
+                <input type="range" max="360" min="0" value="123" class="input compare_theme_range">
+            </div>
         </h2>
         <div class="examples_list">
             <div class="example hsl_example" theme='light'>
@@ -1223,27 +1266,30 @@
             </div>
         </div>
         <script>
-            const example_compare_example_range_theme_hsl = document.querySelector('#compare_example_range_theme .lch_example.example');
-            const example_compare_example_range_theme_lch = document.querySelector('#compare_example_range_theme .hsl_example.example');
+            const example_compare_example_range_theme_hsl
+                = document.querySelector('#compare_example_range_theme .lch_example.example');
+            const example_compare_example_range_theme_lch
+                = document.querySelector('#compare_example_range_theme .hsl_example.example');
             const input_compare_example_range_theme = document.querySelector('#compare_example_range_theme .input[type="range"]');
             input_compare_example_range_theme.addEventListener('mousemove', (e) => {
                 example_compare_example_range_theme_hsl.style.setProperty('--h', e.target.value)
                 example_compare_example_range_theme_lch.style.setProperty('--h', e.target.value)
             })
 
-            const example_compare_example_theme_lch = document.querySelectorAll('#compare_example_range_theme input[type="radio"]');
-            console.log(input_lch_example_lightness_theme);
-            input_lch_example_lightness_theme.forEach((input) => {
+            const example_compare_example_theme_examples
+                = document.querySelectorAll('#compare_example_range_theme .examples_list .example[theme]');
+
+            const example_compare_example_theme_lch_radio
+                = document.querySelectorAll('#compare_example_range_theme input[type="radio"]');
+            example_compare_example_theme_lch_radio.forEach((input) => {
                 input.addEventListener('change', (e) => {
-                    example_lch_example_range_theme.setAttribute('theme', e.target.value);
-                    console.log(e);
+                    example_compare_example_theme_examples.forEach((elem) => {
+                        elem.setAttribute('theme', e.target.value);
+                    });
                 });
             });
         </script>
         <style>
-            #compare_example_range_theme input[type="range"]::-webkit-slider-runnable-track {
-                background-color: currentColor;
-            }
             #compare_example_range_theme .lch_example.example {
                 --h: 123;
                 --n-ch: 0 var(--h);
@@ -1351,8 +1397,6 @@
             <code>rgb()</code><br>
             <code>hsl()</code><br>
             <code>hex</code><br>
-            <code>hex</code>
-        <error>получше оформить</error>
     </section>
 
     <section class="slide">
@@ -1451,6 +1495,21 @@
             <li class="">Построение простых цветовых схем - ✅</li>
             <li class="">Темная тема - ✅</li>
             <li class="next">Яркие акценты - ✅</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class=" shout" style="font-size: 70px; padding: 200px; text-align: center; box-sizing: border-box">Еще несколько удобных вещей в будущем</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Хотим сделать хорошо</h2>
+        <p class="">Хорошо - это как?</p>
+        <ul>
+            <li class="">Привести в палитру - ✅</li>
+            <li class="">Построение простых цветовых схем - ✅</li>
+            <li class="">Темная тема - ✅</li>
+            <li class="">Яркие акценты - ✅</li>
             <li class="next">Удобные цвета для состояний</li>
         </ul>
     </section>
@@ -1472,20 +1531,6 @@
             <span> -> active -> </span>
             <button>Button</button>
         </div>
-    </section>
-
-    <section class="slide">
-        <h2>Удобные цвета для состояний</h2>
-        <pre class="small">
-            <code>:root {</code>
-            <code>  --common_l: 50%;</code>
-            <code>  --hover_l: calc(var(--common_l) + 10%);</code>
-            <code>  --active_l: calc(var(--common_l) - 10%);</code>
-            <code>  --button_bg: <span class="color" style="--c:hsl(200 50% 50%)">hsl(200 50% var(--common_l));</span></code>
-            <code>  --button_bg_hover: <span class="color" style="--c:hsl(200 50% 60%)">hsl(200 50% var(--hover_l));</span></code>
-            <code>  --button_bg_active: <span class="color" style="--c:hsl(200 50% 40%)">hsl(200 50% var(--active_l));</span></code>
-            <code>}</code>
-        </pre>
     </section>
 
     <section class="slide">
@@ -1629,13 +1674,25 @@
             <span class="color" style="--c: black">black</span>)
         </div>
         <div class="code next ">color-contrast(
-            <span class="color" style="--c: lch(60% 70 300)">lch(80% 70 300)</span>vs
+            <span class="color" style="--c: lch(90% 70 300)">lch(90% 70 300)</span>vs
             <span class="color" style="--c: lch(10% 70 300)">lch(10% 70 300)</span>,
             <span class="color" style="--c: lch(100% 70 300)">lch(100% 70 300)</span>)
         </div>
-        <error>демка, что оно работает в рантайме</error>
     </section>
 
+    <section class="slide" id="contrast_range" style="--l: 30%">
+        <h2><code>color-contrast()</code></h2>
+        <input type="range" class="input contrast_range" max="100" value="30">
+        <code class="color" style="--c: lch(var(--l) 30 0)">lch(var(--l) 30 0)</code>
+        <script>
+            const contrast_range_input = document.querySelector('#contrast_range input');
+            const contrast_range_slide = document.querySelector('#contrast_range');
+
+            contrast_range_input.addEventListener('mousemove', (e) => {
+                contrast_range_slide.style.setProperty('--l', e.target.value + '%')
+            });
+        </script>
+    </section>
 
     <section class="slide">
         <img src="./accest/can_i_use_color_contrast.jpeg" alt="" class="full_image">
@@ -1685,13 +1742,8 @@
             <li>Patreon – <a href="https://www.patreon.com/ariarzer" target="_blank">@ariarzer</a></li>
         </ul>
 
-        <p class="small">Презентация сделана с помощью <a href="https://shwr.me/">Shower</a>, за помощь в подготовке
-            спасибо Владу Шилову.</p>
+        <p class="small">Презентация сделана с помощью <a href="https://shwr.me/">Shower</a>.</p>
     </section>
-
-    <footer class="badge">
-        <a href="https://github.com/shower/shower">Fork me on GitHub</a>
-    </footer>
 
     <div class="progress"></div>
 

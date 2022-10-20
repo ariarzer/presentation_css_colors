@@ -17,7 +17,6 @@
     overflow: hidden;
 }
 .slide,
-.slide h2,
 .slide li::before {
     color: #A9B7C6;
 }
@@ -144,4 +143,8 @@ pre.no_n code::before {
 
 .small {
     font-size: 0.8em;
+}
+
+.slide {
+    overflow: hidden;
 }

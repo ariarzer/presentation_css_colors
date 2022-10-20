@@ -152,3 +152,21 @@ input[type="radio"]:hover {
 input[type="radio"]:checked {
     background-image: radial-gradient(var(--ORANGE) 50%, transparent 50%, transparent);
 }
+
+.formula {
+    font-size: 2em;
+}
+
+.formula sqrt::before {
+    content: "√";
+    font-size: 1.3em;
+}
+
+.formula sqrt {
+    box-shadow: 1em -1em  0 calc(-1em + 1px)  currentColor;
+}
+
+.formula sup {
+    font-size: 0.5em;
+}
+
