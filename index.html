@@ -29,11 +29,6 @@
         <p>София Валитова, CSS-инженер</p>
     </header>
 
-    <section class="slide blog">
-        <img src="accest/blog.png" alt="" class="full_image" style="width: 100%;height: auto;z-index: -1;opacity: 30%; max-height: initial">
-        <h2 class="shout" style="font-size: 50px; margin-bottom: 10px; text-shadow: 0 0 50px #fff6;transform: translateY(-60px)">Меня зовут София. Я - CSS инженер.</h2>
-    </section>
-
     <section class="slide" id="head">
         <h2 class="shout shrink">Цвета в CSS</h2>
         <style>
@@ -41,6 +36,14 @@
                 visibility: hidden;
             }
         </style>
+    </section>
+
+    <section class="slide blog">
+        <img src="accest/blog.png" alt="" class="full_image"
+             style="width: 100%;height: auto;z-index: -1;opacity: 30%; max-height: initial">
+        <h2 class="shout"
+            style="font-size: 50px; margin-bottom: 10px; text-shadow: 0 0 50px #fff6;transform: translateY(-60px)">Меня
+            зовут София. Я - CSS инженер.</h2>
     </section>
 
     <section class="slide">
@@ -59,7 +62,7 @@
 
     <section class="slide">
         <h2>Приходим мы в проект...</h2>
-        <p class="">
+        <p class="next">
             <span class="color" style="--c: #5181b8">#5181b8</span>
             <span class="color" style="--c: lch(52.46% 43.1 263.87)">lch(52.4% 35. 263)</span>
             <span class="color" style="--c: #6186b5">#6186b5</span>
@@ -262,7 +265,7 @@
         </p>
 
 
-        <p>Средний синтакис –
+        <p>Средний синтаксис –
             <code>color: rgb (
                 <span style="color: red">R</span>,
                 <span style="color: green">G</span>,
@@ -276,7 +279,7 @@
             </code>
         </p>
 
-        <p>Старый синтакис –
+        <p>Старый синтаксис –
             <code>color: rgb (
                 <span style="color: red">R</span>,
                 <span style="color: green">G</span>,
@@ -339,7 +342,7 @@
 
     <section class="slide">
         <h2>Какие цвета у нас есть в коде?</h2>
-        <h3>5. возможно даже ... <span class="next">HSL() <span style="opacity: 0.6">HSLA()</span></span></h3>
+        <h3>5. возможно, даже ... <span class="next">HSL() <span style="opacity: 0.6">HSLA()</span></span></h3>
         <div class="next">
             <div class="color" style="--c: hsl(123 50% 50%)">hsl(123 50% 50%)</div>
             <div class="color" style="--c: hsl(263 20% 50%)">hsl(263 10% 90%)</div>
@@ -468,10 +471,10 @@
 
     <section class="slide">
         <h2>Как мы можем сравнить два цвета?</h2>
-        <h3>Может быть rgb-куб?</h3>
         <p style="margin-bottom: 0">Расстояние между двумя точками в пространстве:</p>
-        <p class="formula" style="margin-bottom: 0"><sup>3</sup><sqrt>(x<sup>2</sup> + y<sup>2</sup> + z<sup>2</sup>)</sqrt></p>
-        <p class="formula"><sup>3</sup><sqrt>(r<sup>2</sup> + g<sup>2</sup> + b<sup>2</sup>)</sqrt></p>
+        <p class="formula"><sup>3</sup>
+            <sqrt>(r<sup>2</sup> + g<sup>2</sup> + b<sup>2</sup>)</sqrt>
+        </p>
     </section>
 
     <section class="slide">
@@ -502,13 +505,13 @@
 
     <section class="slide">
         <h2>LAB()</h2>
-        <p>Система, разномерная для человеческого глаза</p>
+        <p>Система, равномерная для человеческого глаза</p>
         <img src="accest/lab.jpg" alt="" class="picture ">
     </section>
 
     <section class="slide">
         <h2>Lightness</h2>
-        <p>CIE яркость</p>
+        <p>CIE-яркость</p>
         <div class="lab_lightness"></div>
         <p class="next">Может быть больше 100%!</p>
     </section>
@@ -528,7 +531,9 @@
     <section class="slide">
         <h2>Как мы можем сравнить два цвета?</h2>
         <h3>Считаем расстояние и заменяем</h3>
-        <p class="formula"><sup>3</sup><sqrt>(l<sup>2</sup> + c<sup>2</sup> + h<sup>2</sup>)</sqrt></p>
+        <p class="formula"><sup>3</sup>
+            <sqrt>(l<sup>2</sup> + c<sup>2</sup> + h<sup>2</sup>)</sqrt>
+        </p>
     </section>
 
     <section class="slide">
@@ -538,41 +543,99 @@
 
     <section class="slide">
         <h2>Технически - colord</h2>
-        <pre>
-            <code>import { colord, extend } from "colord";</code>
-            <code>import labPlugin from "colord/plugins/lab";</code>
-            <code>extend([labPlugin]);</code>
-            <code> </code>
-            <code>const result = colord('#5181b8').toLab();</code>
-            <code> // => { l: 73.13, a: 24.49, b: 63.71, alpha: 1 }
-</code>
+        <pre style="background-color:#2b2b2b;color:#a9b7c6;font-family:'JetBrains Mono',monospace;font-size: 20px;">
+            <code><span style="color:#cc7832;">import </span>{ <span style="color:#ffc66d;">colord</span><span
+                    style="color:#cc7832;">, </span><span style="color:#ffc66d;">extend </span>} <span
+                    style="color:#cc7832;">from </span><span style="color:#6a8759;">"colord"</span><span
+                    style="color:#cc7832;">;</span></code>
+
+            <code><span style="color:#cc7832;">import </span><span
+                    style="color:#ffc66d;">labPlugin </span><span style="color:#cc7832;">from </span><span
+                    style="color:#6a8759;">"colord/plugins/lab"</span><span style="color:#cc7832;">;</span></code>
+
+            <code><span style="color:#ffc66d;">extend</span>([labPlugin])<span style="color:#cc7832;">;</span></code>
+            <code><span style="color:#cc7832;">const </span>result = <span
+                    style="color:#ffc66d;">colord</span>(<span style="color:#6a8759;">'#5181b8'</span>).<span
+                    style="color:#ffc66d;">toLab</span>()<span style="color:#cc7832;">;</span></code>
+            <code><span style="color:#808080;">// =&gt; { l: 73.13, a: 24.49,b: 63.71, alpha: 1 }</span></code>
         </pre>
     </section>
 
     <section class="slide">
         <h2>Технически</h2>
-        <pre>
-            <code>const lab1 = { l: 22.56, a: 34.74, b: 62.97, alpha: 1 };</code>
-            <code>const lab2 = { l: 52.37, a: -4.25, b: -34.48, alpha: 1 };</code>
-            <code>const D = Math.sqrt(</code>
-            <code>  (lab1.l - lab2.l)^2 + </code>
-            <code>  (lab1.a - lab2.a)^2 + </code>
-            <code>  (lab1.b - lab2.b)^2 + </code>
-            <code>  (lab1.alpha - lab2.alpha)^2 + </code>
-            <code>);</code>
+        <pre style="background-color:#2b2b2b;color:#a9b7c6;font-family:'JetBrains Mono',monospace; font-size: 20px">
+            <code><span
+                    style="color:#cc7832;">const </span><span
+                    style="color:#9876aa;font-weight:bold;font-style:italic;">lab1 </span>= { <span
+                    style="color:#9876aa;">l</span>: <span style="color:#6897bb;">22.56</span><span
+                    style="color:#cc7832;">, </span><span style="color:#9876aa;">a</span>: <span style="color:#6897bb;">34.74</span><span
+                    style="color:#cc7832;">, </span><span style="color:#9876aa;">b</span>: <span style="color:#6897bb;">62.97</span><span
+                    style="color:#cc7832;">, </span><span style="color:#9876aa;">alpha</span>: <span
+                    style="color:#6897bb;">1 </span>}<span
+                    style="color:#cc7832;">;</span></code>
+            <code><span style="color:#cc7832;">const </span><span
+                    style="color:#9876aa;font-weight:bold;font-style:italic;">lab2 </span>= { <span
+                    style="color:#9876aa;">l</span>: <span style="color:#6897bb;">52.37</span><span
+                    style="color:#cc7832;">, </span><span style="color:#9876aa;">a</span>: -<span
+                    style="color:#6897bb;">4.25</span><span
+                    style="color:#cc7832;">, </span><span style="color:#9876aa;">b</span>: -<span
+                    style="color:#6897bb;">34.48</span><span
+                    style="color:#cc7832;">, </span><span style="color:#9876aa;">alpha</span>: <span
+                    style="color:#6897bb;">1 </span>}<span
+                    style="color:#cc7832;">;</span></code>
+            <code><span style="color:#cc7832;">const </span><span
+                    style="color:#9876aa;font-weight:bold;font-style:italic;">D </span>= <span
+                    style="color:#9876aa;font-weight:bold;font-style:italic;">Math</span>.<span
+                    style="color:#ffc66d;">sqrt</span>(</code>
+            <code><span style="padding-left: 3em"></span>(<span
+                    style="color:#9876aa;font-weight:bold;font-style:italic;">lab1</span>.<span
+                    style="color:#9876aa;">l </span>- <span
+                    style="color:#9876aa;font-weight:bold;font-style:italic;">lab2</span>.<span
+                    style="color:#9876aa;">l</span>)^<span style="color:#6897bb;">2 </span>+</code>
+            <code><span style="padding-left: 3em">(<span
+                    style="color:#9876aa;font-weight:bold;font-style:italic;">lab1</span>.<span
+                    style="color:#9876aa;">a </span>- <span
+                    style="color:#9876aa;font-weight:bold;font-style:italic;">lab2</span>.<span
+                    style="color:#9876aa;">a</span>)^<span style="color:#6897bb;">2 </span>+</span></code>
+            <code><span style="padding-left: 3em">(<span
+                    style="color:#9876aa;font-weight:bold;font-style:italic;">lab1</span>.<span
+                    style="color:#9876aa;">b </span>- <span
+                    style="color:#9876aa;font-weight:bold;font-style:italic;">lab2</span>.<span
+                    style="color:#9876aa;">b</span>)^<span style="color:#6897bb;">2 </span>+</span></code>
+            <code><span style="padding-left: 3em">(<span
+                    style="color:#9876aa;font-weight:bold;font-style:italic;">lab1</span>.<span
+                    style="color:#9876aa;">alpha </span>- <span
+                    style="color:#9876aa;font-weight:bold;font-style:italic;">lab2</span>.<span
+                    style="color:#9876aa;">alpha</span>)^<span style="color:#6897bb;">2</span></code>
+            <code>)<span
+                    style="color:#cc7832;">;</span></span></code>
         </pre>
     </section>
 
     <section class="slide">
         <h2>Технически</h2>
-        <pre>
-            <code>colors.forEach((color) => {</code>
-            <code>  const result = palette.reduce((acc, Pcolor) => {</code>
-            <code>    const d = distance(color, Pcolor);</code>
-            <code>    if(d < acc.d) { /* заменяем */  }</code>
-            <code>    return acc;</code>
-            <code>  }, {name: null, d: Infinity } )</code>
-            <code>}</code>
+        <pre style="background-color:#2b2b2b;color:#a9b7c6;font-family:'JetBrains Mono',monospace;">
+            <code>colors.<span
+                    style="color:#ffc66d;">forEach</span>((color) =&gt; {</code>
+            <code><span style="padding-left: 3em"></span><span
+                    style="color:#cc7832;">const </span>result = palette.<span
+                    style="color:#ffc66d;">reduce</span>((acc<span style="color:#cc7832;">, </span>paletteColor) =&gt; {</code>
+            <code><span style="padding-left: 3em"></span><span style="padding-left: 3em"></span><span
+                    style="color:#cc7832;">const </span>d = distance(color<span style="color:#cc7832;">, </span>paletteColor)<span
+                    style="color:#cc7832;">;</span></code>
+            <code><span style="padding-left: 3em"></span><span style="padding-left: 3em"></span><span
+                    style="color:#cc7832;">if</span>(d &lt; acc.<span
+                    style="color:#9876aa;">d</span>) { <span
+                    style="color:#808080;">/* заменяем */  </span>}</code>
+            <code><span style="padding-left: 3em"></span><span style="padding-left: 3em"></span><span
+                    style="color:#cc7832;">return </span>acc<span
+                    style="color:#cc7832;">;</span></code>
+            <code><span style="padding-left: 3em"></span><span style="color:#cc7832;"></span>}<span
+                    style="color:#cc7832;">, </span>{<span style="color:#9876aa;">name</span>: <span
+                    style="color:#cc7832;">null, </span><span
+                    style="color:#9876aa;">d</span>: <span
+                    style="color:#9876aa;font-weight:bold;font-style:italic;">Infinity </span>} )</code>
+                <code>}</code>
         </pre>
     </section>
 
@@ -580,12 +643,13 @@
         <h2>Технически - <a href="https://github.com/postcss/postcss/blob/main/docs/writing-a-plugin.md">postCSS</a>
         </h2>
         <pre>
-            <code>root.walkDecls(declaration => {</code>
-            <code>  /* определяем, что это цвет */</code>
-            <code>  /* подбираем нужный из палитры */</code>
-            <code>  declaration.value = newRightColor;</code>
-            <code>});</code>
-        </pre>
+            <code>root.walkDecls(declaration =&gt; {</code>
+            <code><span
+                    style="color:#808080;"><span style="padding-left: 3em"></span>/* определяем, что это цвет */</span></code>
+            <code><span style="color:#808080;"><span style="padding-left: 3em"></span>/* подбираем нужный из палитры */</span></code>
+            <code><span style="color:#808080;"><span style="padding-left: 3em"></span></span>declaration.<span
+                    style="color:#9876aa;">value </span>= newRightColor<span style="color:#cc7832;">;</span></code>
+            <code>})<span style="color:#cc7832;">;</span></code></pre>
         <code class="next">postcss style.css --replace</code>
     </section>
 
@@ -703,14 +767,10 @@
     </section>
 
     <section class="slide">
-        <img src="./accest/naperstki.jpeg" alt="" class="full_image">
-    </section>
-
-    <section class="slide">
         <h2>Выделим в отдельную переменную</h2>
         <div class="code">--hue: 123;</div>
         <div class="code">--accent_hs: var(--hue), 60%;</div>
-        <div class="code">--normal_hs: var(--hue), 0%</div>
+        <div class="code">--normal_hs: var(--hue), 0%;</div>
         <div style="display: flex; font-size: 20px">
             <div>
                 <div class="code">--bg_main: hsl(</div>
@@ -740,12 +800,13 @@
     </section>
 
     <section class="slide">
-        <h3 class="shout shrink small">Цветовая схема зависит только от акцентного цвета</h3>
+        <h3 class="shout shrink" style="font-size: 60px; padding: 100px; box-sizing: border-box; margin: 0">Цветовая
+            схема зависит только от акцентного цвета</h3>
     </section>
 
     <section class="slide hsl_example" id="hsl_example_range">
         <h2>
-        <input type="range" max="360" min="0" class="input hue_hsl" value="123">
+            <input type="range" max="360" min="0" class="input hue_hsl" value="123">
         </h2>
         <div class="example">
             <div class="h1">Большой заголовок</div>
@@ -781,7 +842,7 @@
 
     <section class="slide">
         <h2>Хотим сделать хорошо</h2>
-        <p class="">Хорошо - это как?</p>
+        <p class="">Хорошо – это как?</p>
         <ul>
             <li class="">Привести в палитру - ✅</li>
             <li class="">Построение простых цветовых схем - ✅</li>
@@ -1160,7 +1221,7 @@
             </div>
             <input type="range" max="360" min="0" class="input hue_lch" value="123" style="width: auto; flex-grow: 1">
         </h2>
-        <div class="example"  theme='light'>
+        <div class="example" theme='light'>
             <div class="h1">Большой заголовок</div>
             <p class="text">Маленький текст о том, что это за блог</p>
             <div class="article">
@@ -1318,6 +1379,7 @@
                 display: inline-block;
                 height: min-content;
             }
+
             #compare_example_range_theme .examples_list {
                 display: flex;
                 gap: 1em;
@@ -1388,20 +1450,21 @@
     </section>
 
     <section class="slide">
-        <h2>sRGB</h2>
+        <h2>sRGB <span style="opacity: 0.5">(люминофоры)</span></h2>
         <img src="./accest/sRGB.png" alt="" style="height: 70%; margin-top: 60px" class="full_image">
     </section>
 
     <section class="slide">
         <h2>sRGB</h2>
-            <code>rgb()</code><br>
-            <code>hsl()</code><br>
-            <code>hex</code><br>
+        <code>rgb()</code><br>
+        <code>hsl()</code><br>
+        <code>hex</code><br>
     </section>
 
     <section class="slide">
         <h2>P3</h2>
-        <img src="./accest/p3.png" alt="" style="height: 70%; margin-top: 60px; background-color: white" class="full_image">
+        <img src="./accest/p3.png" alt="" style="height: 70%; margin-top: 60px; background-color: white"
+             class="full_image">
     </section>
 
     <section class="slide">
@@ -1471,8 +1534,10 @@
     <section class="slide">
         <h2>Относительный колориметрический метод</h2>
         <div class="color" style="--c: lch(50% 80 270)">lch(50% 80 270)</div>
-        <div class="next">Переводим в rgb() – <span class="color" style="--c:rgb(-93 124 257);">rgb(-93 124 257)</span></div>
-        <div class="next">Приводим в то, что можем отобразить – <span class="color" style="--c:rgb(0 124 257);">rgb(0 124 257)</span></div>
+        <div class="next">Переводим в rgb() – <span class="color" style="--c:rgb(-93 124 257);">rgb(-93 124 257)</span>
+        </div>
+        <div class="next">Приводим в то, что можем отобразить – <span class="color" style="--c:rgb(0 124 257);">rgb(0 124 256)</span>
+        </div>
     </section>
 
     <section class="slide">
@@ -1499,7 +1564,8 @@
     </section>
 
     <section class="slide">
-        <h2 class=" shout" style="font-size: 70px; padding: 200px; text-align: center; box-sizing: border-box">Еще несколько удобных вещей в будущем</h2>
+        <h2 class=" shout" style="font-size: 70px; padding: 200px; text-align: center; box-sizing: border-box">Еще
+            несколько удобных вещей в будущем</h2>
     </section>
 
     <section class="slide">
@@ -1540,9 +1606,12 @@
             <code>  --common_l: 50%;</code>
             <code>  --hover_l: calc(var(--common_l) + 10%);</code>
             <code>  --active_l: calc(var(--common_l) - 10%);</code>
-            <code>  --button_bg: <span class="color" style="--c:hsl(200 50% 50%)">hsl(200 50% var(--common_l));</span></code>
-            <code>  --button_bg_hover: <span class="color" style="--c:hsl(200 50% 60%)">hsl(200 50% var(--hover_l));</span></code>
-            <code>  --button_bg_active: <span class="color" style="--c:hsl(200 50% 40%)">hsl(200 50% var(--active_l));</span></code>
+            <code>  --button_bg: <span class="color"
+                                       style="--c:hsl(200 50% 50%)">hsl(200 50% var(--common_l));</span></code>
+            <code>  --button_bg_hover: <span class="color"
+                                             style="--c:hsl(200 50% 60%)">hsl(200 50% var(--hover_l));</span></code>
+            <code>  --button_bg_active: <span class="color"
+                                              style="--c:hsl(200 50% 40%)">hsl(200 50% var(--active_l));</span></code>
             <code>}</code>
         </pre>
     </section>
@@ -1553,7 +1622,8 @@
             <code>:root {</code>
             <code>  --common_l: 50%;</code>
             <code>  --hover_l_diff: 10%;  --active_l_diff: -10%;</code>
-            <code>  --button_bg: <span class="color" style="--c:hsl(200 50% 50%)">hsl(200 50% var(--common_l));</span></code>
+            <code>  --button_bg: <span class="color"
+                                       style="--c:hsl(200 50% 50%)">hsl(200 50% var(--common_l));</span></code>
             <code>  --button_bg_hover: </code>
             <code>       <span class="color" style="--c:hsl(200 50% 60%)">hsl(200 50% calc(var(--common_l) + var(--hover_l_diff)));</span></code>
             <code>  --button_bg_active:</code>
@@ -1568,9 +1638,11 @@
             <code>:root {</code>
             <code>  --button_bg: <span class="color" style="--c:hsl(200 50% 50%)">hsl(200 50% 50%);</span></code>
             <code>  --button_bg_hover: </code>
-            <code>       <span class="color" style="--c:hsl(200 50% 60%)">hsl(from var(--button_bg) h s calc(l + 10%));</span></code>
+            <code>       <span class="color"
+                               style="--c:hsl(200 50% 60%)">hsl(from var(--button_bg) h s calc(l + 10%));</span></code>
             <code>  --button_bg_active:</code>
-            <code>       <span class="color" style="--c:hsl(200 50% 40%)">hsl(from var(--button_bg) h s calc(l - 10%));</span></code>
+            <code>       <span class="color"
+                               style="--c:hsl(200 50% 40%)">hsl(from var(--button_bg) h s calc(l - 10%));</span></code>
             <code>}</code>
         </pre>
     </section>
@@ -1578,8 +1650,10 @@
     <section class="slide">
         <h2>Относительный синтаксис</h2>
         <code>hsl(from <span class="color" style="--c: red">red</span> h s l);</code><br>
-        <code> -> hsl(from red <b>calc(h + 100)</b> s l);</code><span class="color" style="--c: hsl(100 100% 50%)"></span><br>
-        <code> -> hsl(from red h <b>calc(s - 50%)</b> l);</code><span class="color" style="--c: hsl(0 50% 50%)"></span><br>
+        <code> -> hsl(from red <b>calc(h + 100)</b> s l);</code><span class="color"
+                                                                      style="--c: hsl(100 100% 50%)"></span><br>
+        <code> -> hsl(from red h <b>calc(s - 50%)</b> l);</code><span class="color"
+                                                                      style="--c: hsl(0 50% 50%)"></span><br>
         <code> -> hsl(from red h s <b>calc(l + 20%)</b>);</code><span class="color" style="--c: hsl(0 50% 70%)"></span>
     </section>
 
@@ -1599,7 +1673,8 @@
             <code>:root {</code>
             <code>  --common_l: 50%;</code>
             <code>  --hover_l_diff: 10%;  --active_l_diff: -10%;</code>
-            <code>  --button_bg: <span class="color" style="--c:hsl(200 50% 50%)">hsl(200 50% var(--common_l));</span></code>
+            <code>  --button_bg: <span class="color"
+                                       style="--c:hsl(200 50% 50%)">hsl(200 50% var(--common_l));</span></code>
             <code>  --button_bg_hover: </code>
             <code>       <span class="color" style="--c:hsl(200 50% 60%)">hsl(200 50% calc(var(--common_l) + var(--hover_l_diff)));</span></code>
             <code>  --button_bg_active:</code>
@@ -1713,7 +1788,7 @@
     <section class="slide">
         <h2>Источники и ссылки</h2>
         <ul>
-            <li>Про цвета на <a href="https://css-live.ru/css/css-colors.html" target="_blank">CSS LIVE</a></li>
+            <li>Про палитры <a href="https://www.youtube.com/watch?v=37pNRQdDhm4" target="_blank">"Дизайн-система на JSON"</a></li>
             <li>Основы теории цвета на <a href="https://habr.com/ru/post/209738/" target="_blank">хабре</a></li>
             <li>Основы ЦВЕТОВОГО восприятия на <a
                     href="https://www.cambridgeincolour.com/ru/tutorials-ru/color-perception.html" target="_blank">cambridgeincolor</a>
@@ -1732,6 +1807,7 @@
 
     <section class="slide">
         <h2>София Валитова из <a href="https://vk.com">Cube</a></h2>
+        <div class="columns two">
         <ul class="small">
             <li><a>ariarzer@gmail.com</a></li>
             <li>Twitter – <a href="https://twitter.com/ariarzer" target="_blank">@ariarzer</a></li>
@@ -1740,9 +1816,17 @@
             <li>Мой канал про css – <a href="https://t.me/css_mind" target="_blank">@css_mind</a></li>
             <li>Мой блог про css – <a href="https://ariarzer.dev" target="_blank">ariarzer.dev</a></li>
             <li>Patreon – <a href="https://www.patreon.com/ariarzer" target="_blank">@ariarzer</a></li>
+            <li>Boosty – <a href="https://www.boosty.to/ariarzer" target="_blank">@ariarzer</a></li>
         </ul>
+            <div style="display: flex; gap: 1em;">
+                <p style="margin-bottom: 0">Оставить отзыв: <img src="./accest/qr_code.gif" alt="" height="200"></p>
 
-        <img src="./accest/qr_code.gif" alt="" class="center" style="height: 300px; left: 70%; top: 60%">
+                <p style="margin-bottom: 0">Презентация:<img src="./accest/presentation_qr.svg" alt=""  height="200"></p>
+
+            </div>
+        </div>
+
+
 
         <p class="small">Презентация сделана с помощью <a href="https://shwr.me/">Shower</a>.</p>
     </section>
